@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { TextInput } from "./UI/TextInput";
-// import { TextInput } from "../components/UI/TextInput";
 
 export const SearchItem = ({ handleFilteredEvents }) => {
   const handleChange = (e) => {
