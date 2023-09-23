@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { EventsCard } from "../components/EventsCard";
 import NewEvent from "../components/form/NewEvent";
 import { SearchItem } from "../components/SearchItem";
-import { DataContext } from "../components/Root";
+import DataContext from "../components/Root";
 
 import {
   Heading,
@@ -16,32 +16,22 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Input,
-  Textarea,
   useBreakpointValue,
   Button,
-  useToast,
 } from "@chakra-ui/react";
 
-export const loader = async () => {
-  const eventsResponse = await fetch("http://localhost:3000/events");
-  const categoriesResponse = await fetch("http://localhost:3000/categories");
-  const events = await eventsResponse.json();
-  const categories = await categoriesResponse.json();
-
-  return { events, categories };
-};
-
 export const EventsPage = () => {
-  // const { events, categories } = useLoaderData();
-  // const [filteredEvents, setFilteredEvents] = useState(events);
-  const { handleEventAdded } = useContext(DataContext);
+  const {
+    events,
+    handleEventAdded,
+    handleFilteredEvents,
+    categories,
+    filteredEvents,
+  } = useContext(DataContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const toast = useToast();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -49,50 +39,6 @@ export const EventsPage = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  // const handleEventAdded = async (newEventData) => {
-  //   const newEventResponse = await fetch("http://localhost:3000/events", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(newEventData),
-  //   });
-
-  //   if (newEventResponse.ok) {
-  //     const updatedEventsResponse = await fetch("http://localhost:3000/events");
-  //     setFilteredEvents(await updatedEventsResponse.json());
-
-  // toast({
-  //   title: "Event Created",
-  //   description: "Your event has been successfuly created!",
-  //   status: "success",
-  //   duration: 5000,
-  //   isClosable: true,
-  // });
-  //   } else {
-  //     toast({
-  //       title: "Error",
-  //       description: "Failed to create new event. Please try again later",
-  //       status: "error",
-  //       duration: 5000,
-  //       isClosable: true,
-  //     });
-  //   }
-  // };
-
-  // const handleFilteredEvents = (searchValue) => {
-  //   if (searchValue === "") {
-  //     setFilteredEvents(events);
-  //   } else {
-  //     const matchedEvents = events.filter((event) => {
-  //       const { location, title } = event;
-  //       return (
-  //         location.toLowerCase().includes(searchValue.toLowerCase()) ||
-  //         title.toLowerCase().includes(searchValue.toLowerCase())
-  //       );
-  //     });
-  //     setFilteredEvents(matchedEvents);
-  //   }
-  // };
 
   const columns = useBreakpointValue({ base: 1, sm: 1, md: 2, lg: 2 });
 
