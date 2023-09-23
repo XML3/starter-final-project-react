@@ -280,24 +280,26 @@ export const EventPage = () => {
             {/* //categories */}
             <Center>
               <Stack direction={"row"} mt={4}>
-                {event.categoryIds.map((categoryId) => {
-                  const category = categories.find(
-                    (category) => category.id === categoryId
-                  );
-                  if (!category) return null;
-
-                  return (
-                    <Text
-                      key={category.id}
-                      color="yellow.300"
-                      fontSize={"sm"}
-                      fontWeight={"medium"}
-                      mr={2}
-                    >
-                      {category.name}
-                    </Text>
-                  );
-                })}
+                {event.categoryIds &&
+                  event.categoryIds.map((categoryId) => {
+                    const category = categories.find(
+                      (category) => category.id === categoryId
+                    );
+                    if (!category) return null;
+                    //console.log("events categories", event.categories);
+                    // console.log("categories:", categories);
+                    return (
+                      <Text
+                        key={category.id}
+                        color="yellow.300"
+                        fontSize={"sm"}
+                        fontWeight={"medium"}
+                        mr={2}
+                      >
+                        {category.name}
+                      </Text>
+                    );
+                  })}
               </Stack>
             </Center>
           </Box>
