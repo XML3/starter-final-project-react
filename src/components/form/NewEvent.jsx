@@ -37,11 +37,18 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   //input handler
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((previousData) => ({
-      ...previousData,
-      [name]: value,
-    }));
-    //console.log(name, value);
+
+    if (name === "category") {
+      setFormData((previousData) => ({
+        ...previousData,
+        category: value,
+      }));
+    } else {
+      setFormData((previousData) => ({
+        ...previousData,
+        [name]: value,
+      }));
+    }
   };
 
   //image upload handler-change (updates state when selected in the form)
@@ -55,20 +62,17 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   };
 
   //action / success-error message to user
-  const takeAction = async ({ request }) => {
-    //console.log(request);
-
-    // const formData = Object.fromEntries(await request.formData());
+  const takeAction = async () => {
     try {
+      const formData = new FormData(formRef.current);
+
       const response = await fetch("http://localhost:3000/events", {
         method: "POST",
-        body: JSON.stringify(formData),
-        headers: { " Content-Type": "application/json" },
+        body: formData,
       });
 
       console.log("API Response:", response);
       if (response.ok) {
-        // onEventAdded(); // calling function to reload events
         toast({
           title: "Event Created",
           description: "Your event has been successfuly created!",
@@ -93,14 +97,30 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
     }
   };
 
+  //function to reset data
+  const resetForm = () => {
+    setFormData({
+      title: "",
+      image: "",
+      lineup: "",
+      description: "",
+      category: "",
+      startTime: "",
+      endTime: "",
+      location: "",
+      userName: "",
+      userImage: "",
+    });
+  };
+
   const handleSaveClick = async () => {
     console.log("handleSaveClick called");
 
-    const result = await takeAction({ request: new formData() });
-    console.log("Result:", result);
+    const result = await takeAction();
 
     if (result.json.success) {
-      onEventAdded();
+      onEventAdded(formData);
+      resetForm();
       onClose();
     } else {
       console.error("Error submitting form:", result.json.error);
@@ -114,7 +134,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
         <ModalHeader>Create New Event</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <form ref={formRef}>
+          <form id="new-form" ref={formRef}>
             <FormControl>
               <FormLabel>Title</FormLabel>
               <Input
@@ -201,6 +221,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
               <Input
                 name="userImage"
                 type="file"
+                accept="image/*"
                 onChange={handleImageChange}
               />
             </FormControl>
@@ -208,8 +229,13 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
         </ModalBody>
 
         <ModalFooter>
-          {/* Additional modal footer actions go here  */}
-          <Button colorScheme="blue" mr={3} onClick={handleSaveClick}>
+          {/* Additional modal footer actions  */}
+          <Button
+            form="new-form"
+            colorScheme="blue"
+            mr={3}
+            onClick={handleSaveClick}
+          >
             Save
           </Button>
           <Button onClick={onClose}>Close</Button>
