@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { EventsCard } from "../components/EventsCard";
 import NewEvent from "../components/form/NewEvent";
 import { SearchItem } from "../components/SearchItem";
+import { DataContext } from "../components/Root";
 
 import {
   Heading,
@@ -35,11 +36,12 @@ export const loader = async () => {
 };
 
 export const EventsPage = () => {
-  const { events, categories } = useLoaderData();
-  const [filteredEvents, setFilteredEvents] = useState(events);
+  // const { events, categories } = useLoaderData();
+  // const [filteredEvents, setFilteredEvents] = useState(events);
+  const { handleEventAdded } = useContext(DataContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const toast = useToast();
+  // const toast = useToast();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -48,51 +50,49 @@ export const EventsPage = () => {
     setIsModalOpen(false);
   };
 
-  const handleEventAdded = async (newEventData) => {
-    const newEventResponse = await fetch("http://localhost:3000/events", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newEventData),
-    });
+  // const handleEventAdded = async (newEventData) => {
+  //   const newEventResponse = await fetch("http://localhost:3000/events", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(newEventData),
+  //   });
 
-    if (newEventResponse.ok) {
-      const updatedEventsResponse = await fetch("http://localhost:3000/events");
-      setFilteredEvents(await updatedEventsResponse.json());
+  //   if (newEventResponse.ok) {
+  //     const updatedEventsResponse = await fetch("http://localhost:3000/events");
+  //     setFilteredEvents(await updatedEventsResponse.json());
 
-      toast({
-        title: "Event Created",
-        description: "Your event has been successfuly created!",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    } else {
-      toast({
-        title: "Error",
-        description: "Failed to create new event. Please try again later",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  };
+  // toast({
+  //   title: "Event Created",
+  //   description: "Your event has been successfuly created!",
+  //   status: "success",
+  //   duration: 5000,
+  //   isClosable: true,
+  // });
+  //   } else {
+  //     toast({
+  //       title: "Error",
+  //       description: "Failed to create new event. Please try again later",
+  //       status: "error",
+  //       duration: 5000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // };
 
-  //Filtered events : SearchItem
-
-  const handleFilteredEvents = (searchValue) => {
-    if (searchValue === "") {
-      setFilteredEvents(events);
-    } else {
-      const matchedEvents = events.filter((event) => {
-        const { location, title } = event;
-        return (
-          location.toLowerCase().includes(searchValue.toLowerCase()) ||
-          title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      });
-      setFilteredEvents(matchedEvents);
-    }
-  };
+  // const handleFilteredEvents = (searchValue) => {
+  //   if (searchValue === "") {
+  //     setFilteredEvents(events);
+  //   } else {
+  //     const matchedEvents = events.filter((event) => {
+  //       const { location, title } = event;
+  //       return (
+  //         location.toLowerCase().includes(searchValue.toLowerCase()) ||
+  //         title.toLowerCase().includes(searchValue.toLowerCase())
+  //       );
+  //     });
+  //     setFilteredEvents(matchedEvents);
+  //   }
+  // };
 
   const columns = useBreakpointValue({ base: 1, sm: 1, md: 2, lg: 2 });
 
@@ -145,11 +145,6 @@ export const EventsPage = () => {
                     categories={categories}
                   />
                 </ModalBody>
-                <ModalFooter>
-                  {/* Additional modal footer actions go here  */}
-
-                  <Button onClick={closeModal}>Close</Button>
-                </ModalFooter>
               </ModalContent>
             </Modal>
 
