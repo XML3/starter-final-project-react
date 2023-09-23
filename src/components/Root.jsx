@@ -113,9 +113,6 @@ export const Root = ({ initialEvents, children }) => {
     filteredEvents,
   };
 
-  console.log("Root component: eventsData", eventsData);
-  console.log("Root comp: categories", categories);
-
   return (
     <DataContext.Provider value={contextValue}>
       <Navigation />
