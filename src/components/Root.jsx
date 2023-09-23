@@ -10,11 +10,14 @@ import { useToast } from "@chakra-ui/react";
 const DataContext = createContext();
 
 //manage and provide data
-export const Root = ({ initialEvents, setFilteredEvents, children }) => {
+export const Root = ({ initialEvents, children }) => {
+  console.log("Root component: Start");
+
   const [eventsData, setEventsData] = useState([]);
   const [categories, setCategories] = useState([]);
   const [users, setUsers] = useState([]);
   const [description, setDescription] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
 
   const toast = useToast();
 
@@ -41,6 +44,13 @@ export const Root = ({ initialEvents, setFilteredEvents, children }) => {
         const eventsData = await eventsResponse.json();
         setEventsData(eventsData);
         setFilteredEvents(eventsData);
+
+        //Fetch categories
+        const categoriesResponse = await fetch(
+          "http://localhost:3000/categories"
+        );
+        const categoriesData = await categoriesResponse.json();
+        setCategories(categoriesData);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -65,6 +75,11 @@ export const Root = ({ initialEvents, setFilteredEvents, children }) => {
         const updatedEvnts = await updatedEventsResponse.json();
         setEventsData(updatedEvnts);
 
+        setFilteredEvents((prevFilteredEvents) => [
+          ...prevFilteredEvents,
+          NewEventData,
+        ]);
+
         toast({
           title: "Event Created",
           description: "Your event has been successfuly created!",
@@ -86,6 +101,7 @@ export const Root = ({ initialEvents, setFilteredEvents, children }) => {
     }
   };
 
+  //object to define the values for children components
   const contextValue = {
     events: eventsData,
     categories,
@@ -94,25 +110,20 @@ export const Root = ({ initialEvents, setFilteredEvents, children }) => {
     showToast: toast,
     handleFilteredEvents,
     handleEventAdded,
+    filteredEvents,
   };
+
+  console.log("Root component: eventsData", eventsData);
+  console.log("Root comp: categories", categories);
 
   return (
     <DataContext.Provider value={contextValue}>
       <Navigation />
-      {children}
+      {/* {children} */}
+      <Outlet />
       <NavigationFooter />
     </DataContext.Provider>
   );
 };
 
-// export const Root = ({ events, setFilteredEvents }) => {
-//   return (
-//     <>
-//       <DataProvider>
-//         <Navigation events={events} setFilteredEvents={setFilteredEvents} />
-//         <Outlet />
-//         <NavigationFooter />
-//       </DataProvider>
-//     </>
-//   );
-// };
+export default DataContext;
