@@ -68,7 +68,7 @@ export const EditEvent = ({
       userImage: imageFile,
     }));
   };
-
+  //action - PUT (edit) / handle form Submit-Save /success-error message to user
   const processAction = async ({ request }) => {
     const formData = Object.fromEntries(await request.formData());
     try {
