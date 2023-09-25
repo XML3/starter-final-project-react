@@ -19,6 +19,10 @@ export const Root = ({ initialEvents, children }) => {
 
   const toast = useToast();
 
+  //get userId route parameters
+  // const { userId } = useParams();
+  // console.log("userId:", userId);
+
   //filters events data based on search - to be called in SearchItem.
   const handleFilteredEvents = (searchValue) => {
     if (searchValue === "") {
@@ -51,8 +55,17 @@ export const Root = ({ initialEvents, children }) => {
         );
         const categoriesData = await categoriesResponse.json();
         setCategories(categoriesData);
+
+        // //Fetch users
+        // if (userId) {
+        //   const userResponse = await fetch(
+        //     `http://localhost:3000/users/${userId}`
+        //   );
+        //   const userData = await userResponse.json();
+        //   setUsers(userData);
+        // }
       } catch (error) {
-        console.log("Error fetching data:", error);
+        console.error("Error fetching data:", error);
       }
     };
     fetchData();
@@ -72,8 +85,8 @@ export const Root = ({ initialEvents, children }) => {
         const updatedEventsResponse = await fetch(
           "http://localhost:3000/events"
         );
-        const updatedEvnts = await updatedEventsResponse.json();
-        setEventsData(updatedEvnts);
+        const updatedEvents = await updatedEventsResponse.json();
+        setEventsData(updatedEvents);
 
         setFilteredEvents((prevFilteredEvents) => [
           ...prevFilteredEvents,
