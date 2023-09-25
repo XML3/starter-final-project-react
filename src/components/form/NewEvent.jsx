@@ -61,7 +61,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
     }));
   };
 
-  //action / success-error message to user
+  //action - POST / handle form Submit-Save /success-error message to user
   const takeAction = async () => {
     try {
       const formData = new FormData(formRef.current);
@@ -112,7 +112,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
       userImage: "",
     });
   };
-
+  //handle Save - takeAction - reset data
   const handleSaveClick = async () => {
     console.log("handleSaveClick called");
 
