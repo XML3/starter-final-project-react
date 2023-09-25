@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Navigation } from "./Navigation";
 import { NavigationFooter } from "./NavigationFooter";
@@ -11,8 +11,6 @@ const DataContext = createContext();
 
 //manage and provide data
 export const Root = ({ initialEvents, children }) => {
-  console.log("Root component: Start");
-
   const [eventsData, setEventsData] = useState([]);
   const [categories, setCategories] = useState([]);
   const [users, setUsers] = useState([]);
@@ -21,6 +19,7 @@ export const Root = ({ initialEvents, children }) => {
 
   const toast = useToast();
 
+  //filters events data based on search - to be called in SearchItem.
   const handleFilteredEvents = (searchValue) => {
     if (searchValue === "") {
       setFilteredEvents(eventsData);
@@ -36,13 +35,14 @@ export const Root = ({ initialEvents, children }) => {
     }
   };
 
-  //Fetching data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
+        //Fetch events
         const eventsResponse = await fetch("http://localhost:3000/events");
         const eventsData = await eventsResponse.json();
         setEventsData(eventsData);
+        //for filtering events - user input- search functionality
         setFilteredEvents(eventsData);
 
         //Fetch categories
@@ -58,7 +58,7 @@ export const Root = ({ initialEvents, children }) => {
     fetchData();
   }, []);
 
-  //moved and modified the following piece of code from EventsPage
+  //handles event data when succesfully created on the server/ moved and modified the following piece of code from EventsPage.
   const handleEventAdded = async (NewEventData) => {
     try {
       //send POST
