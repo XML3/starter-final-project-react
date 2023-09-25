@@ -24,9 +24,8 @@ const router = createBrowserRouter([
         path: "/event/:eventId",
         element: <EventPage />,
       },
-
       {
-        path: "user/:userId",
+        path: "/user/:userId",
         element: <UserPage />,
       },
     ],

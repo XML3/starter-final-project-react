@@ -29,6 +29,7 @@ export const EventsPage = () => {
     handleFilteredEvents,
     categories,
     filteredEvents,
+    users,
   } = useContext(DataContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
