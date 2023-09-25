@@ -27,7 +27,7 @@ import {
 export const EventPage = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
-  // const { handleSearchChange, categories } = useSearch(); //SearchContext
+
   const toast = useToast();
 
   const [event, setEvent] = useState(null);
