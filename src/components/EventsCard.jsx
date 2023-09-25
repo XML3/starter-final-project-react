@@ -1,30 +1,15 @@
 import { Card, CardBody, Stack, Heading, Text, Image } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import DataContext from "./Root";
 
 export const EventsCard = ({ event }) => {
   // console.log(`Event prop:`, event);
 
+  //access global fetch from Root
+  const { categories } = useContext(DataContext);
   const { image, title, description, startTime, endTime, categoryIds } = event;
   // console.log("categoryIds:", categoryIds);
-
-  const [categories, setCategories] = useState([]);
-
-  //Fetching categories from server/keep
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/categories");
-        const data = await response.json();
-        setCategories(data);
-      } catch (error) {
-        console.log("Error fetching data from categories:", error);
-      }
-    };
-
-    fetchCategories();
-    //Empty to run once
-  }, []);
 
   return (
     <div className="event-card">
