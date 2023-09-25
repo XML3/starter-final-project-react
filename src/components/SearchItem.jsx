@@ -3,6 +3,7 @@ import { TextInput } from "./UI/TextInput";
 export const SearchItem = ({ handleFilteredEvents }) => {
   const handleChange = (e) => {
     const searchValue = e.target.value;
+    //calls function from the Root component, passes search user input as argument.
     handleFilteredEvents(searchValue);
   };
 
