@@ -108,7 +108,7 @@ export const EventsPage = () => {
             >
               <Flex align={"center"} justify={"center"}>
                 <SimpleGrid columns={columns} gap={8}>
-                  {/* //map through filtered events/+ Search functionality */}
+                  {/* //map through filtered events/+ Search functionality - Root component/ SeearchItem component*/}
                   {filteredEvents.map((event) => (
                     <Link to={`/event/${event.id}`} key={event.id}>
                       <EventsCard
