@@ -27,24 +27,24 @@ export const EditEvent = ({
   const formRef = useRef(null);
   const toast = useToast();
 
-  const [formData, setFormData] = useState({
-    title: "",
-    image: "",
-    lineup: "",
-    description: "",
-    category: "",
-    startTime: "",
-    endTime: "",
-    location: "",
-    userName: "",
-    userImage: "",
-  });
+  const [formData, setFormData] = useState(initialData);
+  // title: "",
+  // image: "",
+  // lineup: "",
+  // description: "",
+  // category: "",
+  // startTime: "",
+  // endTime: "",
+  // location: "",
+  // userName: "",
+  // userImage: "",
 
   //initialData prop to show form fields with event data when opened.
   useEffect(() => {
     if (initialData) {
-      // console.log("Initial Data:", initialData);
-      // console.log("Current Form Data:", formData);
+      console.log("Initial Data:", initialData);
+      console.log("Event Id:", initialData.eventId);
+      console.log("Current Form Data:", formData);
       setFormData(initialData);
     }
   }, [initialData]);
@@ -70,13 +70,15 @@ export const EditEvent = ({
   };
   //action - PUT (edit) / handle form Submit-Save /success-error message to user
   const processAction = async ({ request }) => {
-    const formData = Object.fromEntries(await request.formData());
     try {
-      const response = await fetch("http://localhost:3000/events", {
-        method: "PUT",
-        body: JSON.stringify(formData),
-        headers: { " Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        `http://localhost:3000/events/${initialData.eventId}`,
+        {
+          method: "PUT",
+          body: request,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       if (response.ok) {
         toast({
           title: "Event Edited",
@@ -230,24 +232,29 @@ export const EditEvent = ({
             colorScheme="blue"
             mr={3}
             onClick={async () => {
+              console.log("Save button clicked");
               //Form data object ... apend updated data
+              console.log("...To send PUT request...");
               const updatedData = new FormData();
+
               updatedData.append("title", formData.title);
               updatedData.append("image", formData.image);
               updatedData.append("lineup", formData.lineup);
               updatedData.append("description", formData.description);
               updatedData.append("category", formData.category);
               updatedData.append("startTime", formData.startTime);
-              updatedData.append("ennTime", formData.endTime);
+              updatedData.append("endTime", formData.endTime);
               updatedData.append("userName", formData.userName);
               updatedData.append("userImage", formData.userImage);
 
-              const request = { formData: updatedData };
-
-              const result = await processAction({ request });
+              const result = await processAction({ request: updatedData });
+              console.log("PUT request result:", result);
               //200=succeful save
               if (result.status === 200) {
+                console.log("Event edited successful");
                 onClose();
+              } else {
+                console.error("An error occurred:", result.json.error);
               }
             }}
           >
