@@ -73,6 +73,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
 
       console.log("API Response:", response);
       if (response.ok) {
+        //notify the user
         toast({
           title: "Event Created",
           description: "Your event has been successfuly created!",
@@ -116,11 +117,12 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   const handleSaveClick = async () => {
     console.log("handleSaveClick called");
 
+    //call takeAction to perform the POST request when Save is clicked
     const result = await takeAction();
 
     if (result.json.success) {
       onEventAdded(formData);
-      resetForm();
+      resetForm(); //clear form fields
       onClose();
     } else {
       console.error("Error submitting form:", result.json.error);
