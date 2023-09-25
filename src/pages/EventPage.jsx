@@ -167,7 +167,7 @@ export const EventPage = () => {
                 <EditEvent
                   isOpen={isModalOpen}
                   onClose={closeModal}
-                  initialData={event}
+                  initialData={{ ...event, eventId: eventId }}
                   categories={categories}
                   users={users}
                 />
