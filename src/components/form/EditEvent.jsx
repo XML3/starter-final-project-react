@@ -250,7 +250,10 @@ export const EditEvent = ({
               updatedData.append("image", formData.image);
               updatedData.append("lineup", formData.lineup);
               updatedData.append("description", formData.description);
-              updatedData.append("category", formData.categoryId);
+              updatedData.append(
+                "categoryIds",
+                JSON.stringify(formData.categoryIds)
+              );
               updatedData.append("location", formData.location);
               updatedData.append("startTime", formData.startTime);
               updatedData.append("endTime", formData.endTime);
