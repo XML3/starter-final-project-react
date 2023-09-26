@@ -156,6 +156,14 @@ export const EditEvent = ({
               />
             </FormControl>
             <FormControl>
+              <FormLabel>Artists</FormLabel>
+              <Input
+                name="lineup"
+                value={formData.lineup}
+                onChange={handleInputEditChange}
+              />
+            </FormControl>
+            <FormControl>
               <FormLabel>Description</FormLabel>
               <Input
                 name="description"
