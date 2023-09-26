@@ -156,6 +156,14 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
               />
             </FormControl>
             <FormControl>
+              <FormLabel>Artists</FormLabel>
+              <Input
+                name="lineup"
+                value={formData.lineup}
+                onChange={handleImageChange}
+              />
+            </FormControl>
+            <FormControl>
               <FormLabel>Description</FormLabel>
               <Input
                 name="description"
