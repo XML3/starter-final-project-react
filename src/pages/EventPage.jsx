@@ -283,6 +283,7 @@ export const EventPage = () => {
             {/* //categories */}
             <Center>
               <Stack direction={"row"} mt={4}>
+                {/* checks it is indeed an array */}
                 {Array.isArray(event.categoryIds) ? (
                   event.categoryIds.map((categoryId) => {
                     const category = categories.find(
