@@ -27,7 +27,7 @@ export const EditEvent = ({
   const formRef = useRef(null);
   const toast = useToast();
 
-  const [formData, setFormData] = useState(initialData);
+  const [formData, setFormData] = useState({ ...initialData, categoryIds: [] });
   // title: "",
   // image: "",
   // lineup: "",
@@ -53,10 +53,17 @@ export const EditEvent = ({
   const handleInputEditChange = (event) => {
     const { name, value } = event.target;
     console.log("Field:", name, "Value:", value);
-    setFormData((previousData) => ({
-      ...previousData,
-      [name]: value,
-    }));
+    if (name === "categoryIds") {
+      setFormData((previousData) => ({
+        ...previousData,
+        [name]: [parseInt(value, 10)],
+      }));
+    } else {
+      setFormData((previousData) => ({
+        ...previousData,
+        [name]: value,
+      }));
+    }
   };
 
   //Edit image upload
