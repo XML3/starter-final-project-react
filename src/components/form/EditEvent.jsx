@@ -27,7 +27,10 @@ export const EditEvent = ({
   const formRef = useRef(null);
   const toast = useToast();
 
-  const [formData, setFormData] = useState({ ...initialData, categoryIds: [] });
+  const [formData, setFormData] = useState({
+    ...initialData,
+    categoryIds: initialData.categoryIds || [],
+  });
   // title: "",
   // image: "",
   // lineup: "",
@@ -52,11 +55,17 @@ export const EditEvent = ({
   //Edit input handler
   const handleInputEditChange = (event) => {
     const { name, value } = event.target;
+
     console.log("Field:", name, "Value:", value);
-    if (name === "categoryIds") {
+
+    if (name === "categoryIds[0]") {
+      console.log("Before change-categoryIds:", formData.categoryIds);
+
+      const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
+
       setFormData((previousData) => ({
         ...previousData,
-        [name]: [parseInt(value, 10)],
+        categoryIds: categoryIdArray,
       }));
     } else {
       setFormData((previousData) => ({
@@ -265,10 +274,7 @@ export const EditEvent = ({
               updatedData.append("image", formData.image);
               updatedData.append("lineup", formData.lineup);
               updatedData.append("description", formData.description);
-              updatedData.append(
-                "categoryIds",
-                JSON.stringify(formData.categoryIds)
-              );
+              updatedData.append("categoryIds", formData.categoryId);
               updatedData.append("location", formData.location);
               updatedData.append("startTime", formData.startTime);
               updatedData.append("endTime", formData.endTime);
