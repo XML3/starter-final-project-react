@@ -49,7 +49,7 @@ export const EditEvent = ({
     }
   }, [initialData]);
 
-  //Edit handler
+  //Edit input handler
   const handleInputEditChange = (event) => {
     const { name, value } = event.target;
     console.log("Field:", name, "Value:", value);
@@ -70,12 +70,18 @@ export const EditEvent = ({
   };
   //action - PUT (edit) / handle form Submit-Save /success-error message to user
   const processAction = async ({ request }) => {
+    //make formData into object {key, value] and stringify.
     try {
+      const formDataObject = {};
+      for (const [key, value] of request.entries()) {
+        formDataObject[key] = value;
+      }
+      const requestBody = JSON.stringify(formDataObject);
       const response = await fetch(
         `http://localhost:3000/events/${initialData.eventId}`,
         {
           method: "PUT",
-          body: request,
+          body: requestBody,
           headers: { "Content-Type": "application/json" },
         }
       );
@@ -241,7 +247,7 @@ export const EditEvent = ({
               updatedData.append("image", formData.image);
               updatedData.append("lineup", formData.lineup);
               updatedData.append("description", formData.description);
-              updatedData.append("category", formData.category);
+              updatedData.append("category", formData.categoryId);
               updatedData.append("startTime", formData.startTime);
               updatedData.append("endTime", formData.endTime);
               updatedData.append("userName", formData.userName);
