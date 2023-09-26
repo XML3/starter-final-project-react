@@ -104,9 +104,12 @@ export const EventPage = () => {
     );
     if (confirmed) {
       try {
-        const response = await fetch(`http:/localhost:3000/events/${eventId}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `http://localhost:3000/events/${eventId}`,
+          {
+            method: "DELETE",
+          }
+        );
         if (response.ok) {
           navigate("/events");
           toast({
