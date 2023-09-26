@@ -280,14 +280,15 @@ export const EventPage = () => {
             {/* //categories */}
             <Center>
               <Stack direction={"row"} mt={4}>
-                {event.categoryIds &&
+                {Array.isArray(event.categoryIds) ? (
                   event.categoryIds.map((categoryId) => {
                     const category = categories.find(
                       (category) => category.id === categoryId
                     );
+                    console.log("category:", category);
                     if (!category) return null;
                     //console.log("events categories", event.categories);
-                    // console.log("categories:", categories);
+                    //console.log("categories:", categories);
                     return (
                       <Text
                         key={category.id}
@@ -299,7 +300,10 @@ export const EventPage = () => {
                         {category.name}
                       </Text>
                     );
-                  })}
+                  })
+                ) : (
+                  <Text>No categories available</Text>
+                )}
               </Stack>
             </Center>
           </Box>
