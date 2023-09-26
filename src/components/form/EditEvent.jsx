@@ -112,11 +112,14 @@ export const EditEvent = ({
 
   const handleUserEditChange = (event) => {
     const selectedUserId = event.target.value;
+    console.log("Selected User ID:", selectedUserId);
+    console.log("Users Data:", users);
     setFormData((previousData) => ({
       ...previousData,
       userName: users.find((user) => user.id === selectedUserId)?.name || "",
       createdBy: selectedUserId,
     }));
+    console.log("Updated FormData:", formData);
   };
 
   return (
@@ -248,6 +251,7 @@ export const EditEvent = ({
               updatedData.append("lineup", formData.lineup);
               updatedData.append("description", formData.description);
               updatedData.append("category", formData.categoryId);
+              updatedData.append("location", formData.location);
               updatedData.append("startTime", formData.startTime);
               updatedData.append("endTime", formData.endTime);
               updatedData.append("userName", formData.userName);
