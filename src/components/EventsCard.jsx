@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import DataContext from "./Root";
 
 export const EventsCard = ({ event }) => {
-  // console.log(`Event prop:`, event);
-
   //access global fetch from Root
   const { categories } = useContext(DataContext);
   const { image, title, description, startTime, endTime, categoryIds } = event;
-  // console.log("categoryIds:", categoryIds);
+  //console.log("categoryIds:", categoryIds);
+  // console.log("event.categoryIds:", event.categoryIds);
 
   return (
     <div className="event-card">
@@ -43,8 +42,8 @@ export const EventsCard = ({ event }) => {
 
           {/* Display categories */}
           <Stack direction="row">
-            {categoryIds &&
-              categoryIds.map((categoryId) => {
+            {Array.isArray(event.categoryIds) ? (
+              event.categoryIds.map((categoryId) => {
                 const category = categories.find(
                   (category) => category.id === categoryId
                 );
@@ -55,7 +54,10 @@ export const EventsCard = ({ event }) => {
                     {category.name}
                   </Text>
                 );
-              })}
+              })
+            ) : (
+              <Text>No categories available</Text>
+            )}
           </Stack>
         </CardBody>
       </Card>
