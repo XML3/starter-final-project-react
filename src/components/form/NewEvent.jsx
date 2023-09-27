@@ -160,7 +160,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
               <Input
                 name="lineup"
                 value={formData.lineup}
-                onChange={handleImageChange}
+                onChange={handleInputChange}
               />
             </FormControl>
             <FormControl>
