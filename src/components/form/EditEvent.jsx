@@ -58,7 +58,7 @@ export const EditEvent = ({
 
     console.log("Field:", name, "Value:", value);
 
-    if (name === "categoryIds[0]") {
+    if (name === "category") {
       console.log("Before change-categoryIds:", formData.categoryIds);
 
       const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
@@ -75,7 +75,7 @@ export const EditEvent = ({
     }
   };
 
-  //Edit image upload
+  //Edit image upload - This won't fully work without Back-End Development.
   const handleImageEditChange = (event) => {
     const imageFile = event.target.files[0]; //retrieves first file selected by user. [0] for single file
     setFormData((previousData) => ({
@@ -88,16 +88,16 @@ export const EditEvent = ({
   const processAction = async ({ request }) => {
     //make formData into object {key, value] and stringify.
     try {
-      const formDataObject = {};
-      for (const [key, value] of request.entries()) {
-        formDataObject[key] = value;
-      }
-      const requestBody = JSON.stringify(formDataObject);
+      // const formDataObject = {};
+      // for (const [key, value] of request.entries()) {
+      //   formDataObject[key] = value;
+      // }
+      // const requestBody = JSON.stringify(formDataObject);
       const response = await fetch(
         `http://localhost:3000/events/${initialData.eventId}`,
         {
           method: "PUT",
-          body: requestBody,
+          body: JSON.stringify(formData),
           headers: { "Content-Type": "application/json" },
         }
       );
