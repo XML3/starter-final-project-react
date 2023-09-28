@@ -23,7 +23,7 @@ export const Root = ({ initialEvents, children }) => {
   // const { userId } = useParams();
   // console.log("userId:", userId);
 
-  //filters events data based on search - to be called in SearchItem.
+  //filters events data based on search - to be called in SearchItem/EventsPage.
   const handleFilteredEvents = (searchValue) => {
     if (searchValue === "") {
       setFilteredEvents(eventsData);
@@ -39,6 +39,7 @@ export const Root = ({ initialEvents, children }) => {
     }
   };
 
+  //Global fetch for events/categories
   useEffect(() => {
     const fetchData = async () => {
       try {
