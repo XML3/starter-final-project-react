@@ -64,11 +64,12 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   //action - POST / handle form Submit-Save /success-error message to user
   const takeAction = async () => {
     try {
-      const formData = new FormData(formRef.current);
+      //const formData = new FormData(formRef.current);
 
       const response = await fetch("http://localhost:3000/events", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       console.log("API Response:", response);
@@ -121,7 +122,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
     const result = await takeAction();
 
     if (result.json.success) {
-      onEventAdded(formData);
+      // onEventAdded(formData);
       resetForm(); //clear form fields
       onClose();
     } else {
