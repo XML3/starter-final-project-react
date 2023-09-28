@@ -176,7 +176,7 @@ export const EventPage = () => {
                 />
               </ModalBody>
               <ModalFooter>
-                {/* Additional modal footer actions go here  */}
+                {/* Additional modal footer actions */}
                 <Button onClick={openModal}>Edit Event</Button>
                 <Button onClick={closeModal}>Close</Button>
               </ModalFooter>
