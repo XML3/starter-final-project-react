@@ -86,6 +86,7 @@ export const EditEvent = ({
   };
   //action - PUT (edit) / handle form Submit-Save /success-error message to user
   const processAction = async ({ request }) => {
+    //make formData into object {key, value] and stringify.
     try {
       const formDataObject = {};
       for (const [key, value] of request.entries()) {
