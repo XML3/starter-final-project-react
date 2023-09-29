@@ -26,7 +26,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
     image: "",
     lineup: "",
     description: "",
-    category: "",
+    //category modified to "categoryIds"
+    categoryIds: "",
     startTime: "",
     endTime: "",
     location: "",
@@ -37,11 +38,11 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   //input handler
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
-    if (name === "category") {
+    //modified "category in IF statement back to "categoryIds"/ modified the useState() above to "categoryIds" and modified the return value=formdata.categoryIds and name=categoryIds.  Not working!
+    if (name === "categoryIds") {
       setFormData((previousData) => ({
         ...previousData,
-        category: value,
+        categoryIds: value,
       }));
     } else {
       setFormData((previousData) => ({
@@ -106,7 +107,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
       image: "",
       lineup: "",
       description: "",
-      category: "",
+      //modified category
+      categoryIds: "",
       startTime: "",
       endTime: "",
       location: "",
@@ -203,8 +205,9 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
             <FormControl>
               <FormLabel>Category</FormLabel>
               <Select
-                name="category"
-                value={formData.category}
+                //modified this section from "category in name and value of formData"
+                name="categoryIds"
+                value={formData.categoryIds}
                 onChange={handleInputChange}
               >
                 <option value="">Select a category</option>
