@@ -38,11 +38,11 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   //input handler
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    //modified "category in IF statement back to "categoryIds"/ modified the useState() above to "categoryIds" and modified the return value=formdata.categoryIds and name=categoryIds.  Not working!
-    if (name === "categoryIds") {
+
+    if (name === "category") {
       setFormData((previousData) => ({
         ...previousData,
-        categoryIds: value,
+        category: value,
       }));
     } else {
       setFormData((previousData) => ({
@@ -107,8 +107,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
       image: "",
       lineup: "",
       description: "",
-      //modified category
-      categoryIds: "",
+      //modify category?
+      category: "",
       startTime: "",
       endTime: "",
       location: "",
