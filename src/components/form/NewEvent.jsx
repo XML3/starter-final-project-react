@@ -39,10 +39,10 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "category") {
+    if (name === "categoryIds") {
       setFormData((previousData) => ({
         ...previousData,
-        category: value,
+        categoryIds: [parseInt(value)],
       }));
     } else {
       setFormData((previousData) => ({
