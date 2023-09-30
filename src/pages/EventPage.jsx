@@ -24,7 +24,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 
-export const EventPage = () => {
+export const EventPage = ({ deleteEvent }) => {
   const { eventId } = useParams();
   const navigate = useNavigate();
 
@@ -111,6 +111,7 @@ export const EventPage = () => {
           }
         );
         if (response.ok) {
+          deleteEvent(eventId);
           navigate("/");
           toast({
             title: "Event Deleted",
@@ -171,6 +172,8 @@ export const EventPage = () => {
                   isOpen={isModalOpen}
                   onClose={closeModal}
                   initialData={{ ...event, eventId: eventId }}
+                  //add setEvent to upload the changes on the page
+                  setEvent={setEvent}
                   categories={categories}
                   users={users}
                 />
@@ -188,6 +191,7 @@ export const EventPage = () => {
             onClick={() => handleDeleteClick(event.id)}
             bgColor={"pink.500"}
             color={"gray.900"}
+            deleteEvent={deleteEvent}
           >
             Delete Event
           </Button>

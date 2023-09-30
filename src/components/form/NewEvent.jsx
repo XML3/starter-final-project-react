@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { Form } from "react-router-dom";
+import DataContext, { Root } from "../Root";
 import {
   Modal,
   ModalOverlay,
@@ -20,6 +21,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
   const formRef = useRef(null);
   //console.log(formRef.current);
   const toast = useToast();
+
+  const { addEvent } = useContext(DataContext);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -80,7 +83,10 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
       });
 
       console.log("API Response:", response);
+
+      const data = await response.json();
       if (response.ok) {
+        addEvent({ ...formData, id: data.id });
         //notify the user
         toast({
           title: "Event Created",
@@ -89,6 +95,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
           duration: 5000,
           isClosable: true,
         });
+
         return { status: 200, json: { success: true } };
       } else {
         toast({
