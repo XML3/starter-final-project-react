@@ -227,6 +227,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
             <FormControl>
               {/* User information */}
               <FormLabel>User Name</FormLabel>
+              {/* modified to map through users in a dropdown menu */}
               <Select
                 name="userName"
                 type="text"
