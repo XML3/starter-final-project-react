@@ -115,6 +115,21 @@ export const Root = ({ initialEvents, children }) => {
     }
   };
 
+  //function to handle the new event getting automatically posted without refreshing page.
+  const addEvent = (newEvent) => {
+    setFilteredEvents((prevFilteredEvents) => [
+      ...prevFilteredEvents,
+      newEvent,
+    ]);
+  };
+
+  //fucntion to Delete auto
+  const deleteEvent = (eventId) => {
+    setFilteredEvents((prevFilteredEvents) => [
+      ...prevFilteredEvents.filter((e) => e.id !== eventId),
+    ]);
+  };
+
   //object to define the values for children components
   const contextValue = {
     events: eventsData,
@@ -125,6 +140,8 @@ export const Root = ({ initialEvents, children }) => {
     handleFilteredEvents,
     handleEventAdded,
     filteredEvents,
+    addEvent,
+    deleteEvent,
   };
 
   return (
