@@ -20,7 +20,7 @@ export const Root = ({ initialEvents, children }) => {
   const toast = useToast();
 
   //get userId route parameters
-  // const { userId } = useParams();
+  //const { users } = useParams();
   // console.log("userId:", userId);
 
   //filters events data based on search - to be called in SearchItem/EventsPage.
@@ -58,13 +58,13 @@ export const Root = ({ initialEvents, children }) => {
         setCategories(categoriesData);
 
         // //Fetch users
-        // if (userId) {
-        //   const userResponse = await fetch(
-        //     `http://localhost:3000/users/${userId}`
-        //   );
-        //   const userData = await userResponse.json();
-        //   setUsers(userData);
-        // }
+        if (users) {
+          const userResponse = await fetch(
+            `http://localhost:3000/users/${users}`
+          );
+          const userData = await userResponse.json();
+          setUsers(userData);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
