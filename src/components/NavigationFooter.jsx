@@ -13,8 +13,8 @@ export const NavigationFooter = () => {
       <Flex justify={"center"}>
         <Text>
           This App and its content is fictional, none of these events are real,
-          except for the artists names which are real. This page was programmed
-          and designed, including graphics and images by 👉🏻 :
+          except for the artists names. This page was programmed and designed,
+          including graphics and images by 👉🏻 :
         </Text>
         <Text> ©XaglyMontilva 2023</Text>
       </Flex>
