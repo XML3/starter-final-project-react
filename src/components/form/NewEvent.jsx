@@ -229,7 +229,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
               <FormLabel>User Name</FormLabel>
               {/* modified to map through users in a dropdown menu */}
               <Select
-                name="userName"
+                name="createdBy"
                 type="text"
                 placeholder="User Name"
                 value={formData.createdBy}
