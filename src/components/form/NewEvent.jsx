@@ -16,7 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
+const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
   const formRef = useRef(null);
   //console.log(formRef.current);
   const toast = useToast();
@@ -31,7 +31,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
     startTime: "",
     endTime: "",
     location: "",
-    userName: "",
+    //modifed userName to createdBy
+    createdBy: "",
     userImage: "",
   });
 
@@ -43,6 +44,11 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
       setFormData((previousData) => ({
         ...previousData,
         categoryIds: [parseInt(value)],
+      }));
+    } else if (name === "createdBy") {
+      setFormData((previousData) => ({
+        ...previousData,
+        createdBy: value,
       }));
     } else {
       setFormData((previousData) => ({
@@ -112,7 +118,7 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
       startTime: "",
       endTime: "",
       location: "",
-      userName: "",
+      createdBy: "",
       userImage: "",
     });
   };
@@ -221,13 +227,20 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories }) => {
             <FormControl>
               {/* User information */}
               <FormLabel>User Name</FormLabel>
-              <Input
+              <Select
                 name="userName"
                 type="text"
                 placeholder="User Name"
-                value={formData.userName}
+                value={formData.createdBy}
                 onChange={handleInputChange}
-              />
+              >
+                <option value="">Select a user</option>
+                {users.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {user.name}
+                  </option>
+                ))}
+              </Select>
             </FormControl>
             <FormControl>
               {/* /User Image upload */}
