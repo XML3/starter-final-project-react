@@ -137,7 +137,6 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
     const result = await takeAction();
 
     if (result.json.success) {
-      // onEventAdded(formData);
       resetForm(); //clear form fields
       onClose();
     } else {
