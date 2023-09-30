@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { Image, Text } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
 
-//removed { userId } prop, added useParams()
-export const UserPage = () => {
-  const { userId } = useParams();
+export const UserPage = ({ userId }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     //Fetching user info based on userId
     const fetchUser = async () => {
       try {
-        //"http://localhost:3000/users/" + userId)
-        const response = await fetch(`http://localhost:3000/users/${userId}`);
+        const response = await fetch("http://localhost:3000/users/" + userId);
         const userData = await response.json();
         setUser(userData);
       } catch (error) {
@@ -23,7 +19,7 @@ export const UserPage = () => {
     fetchUser();
   }, [userId]);
 
-  if (!userId) {
+  if (!user) {
     return <div>Loading user data ...</div>;
   }
 
