@@ -21,6 +21,7 @@ export const EditEvent = ({
   isOpen,
   onClose,
   initialData,
+  setEvent,
   categories,
   users,
 }) => {
@@ -102,6 +103,7 @@ export const EditEvent = ({
         }
       );
       if (response.ok) {
+        setEvent(formData);
         toast({
           title: "Event Edited",
           description: "Your event has been successfuly edited!",
