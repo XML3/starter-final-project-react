@@ -90,6 +90,7 @@ export const EventsPage = () => {
                     onClose={closeModal}
                     onEventAdded={handleEventAdded}
                     categories={categories}
+                    users={users}
                   />
                 </ModalBody>
               </ModalContent>
