@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import React from "react";
 import { UserPage } from "./UserPage";
 import { useParams, useNavigate } from "react-router-dom";
@@ -23,8 +23,11 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
+import DataContext from "../components/Root";
 
-export const EventPage = ({ deleteEvent }) => {
+export const EventPage = () => {
+  const { deleteEvent } = useContext(DataContext);
+
   const { eventId } = useParams();
   const navigate = useNavigate();
 
