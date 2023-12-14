@@ -3,6 +3,7 @@ import React from "react";
 import { UserPage } from "./UserPage";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+
 import { EditEvent } from "../components/form/EditEvent";
 import {
   Heading,
@@ -140,17 +141,18 @@ export const EventPage = () => {
 
   return (
     <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
-      <Center>
-        <Heading color={"green.200"} ml={"1.5rem"} fontSize={"200px"}>
-          Electronic Music Events
-        </Heading>
-      </Center>
+      <Heading color={"green.200"} ml={"1.5rem"} fontSize={"130px"}>
+        Electronic Music <br />
+        Events
+      </Heading>
 
       <Flex align={"center "} justify={"space-around"} p={6}>
         <Box>
-          <Heading fontSize={"100px"} color={"pink.500"} mb={4}>
-            {event.title}
-          </Heading>
+          <Center>
+            <Heading fontSize={"50px"} color={"pink.500"} mb={4}>
+              {event.title}
+            </Heading>
+          </Center>
 
           {/* Edit Event Button to open modal*/}
           <Button
@@ -209,6 +211,7 @@ export const EventPage = () => {
             h={"45rem"}
             borderRadius={"md"}
             ml={"20rem"}
+            mb={"5rem"}
             padding={"2rem"}
           >
             {/* Event image */}
@@ -298,8 +301,7 @@ export const EventPage = () => {
                     );
                     console.log("category:", category);
                     if (!category) return null;
-                    //console.log("events categories", event.categories);
-                    //console.log("categories:", categories);
+
                     return (
                       <Text
                         key={category.id}
@@ -320,6 +322,7 @@ export const EventPage = () => {
           </Box>
         </Flex>
       </Flex>
+      <Center></Center>
     </Box>
   );
 };
