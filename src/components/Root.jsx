@@ -19,10 +19,6 @@ export const Root = ({ initialEvents, children }) => {
 
   const toast = useToast();
 
-  //get userId route parameters
-  //const { users } = useParams();
-  // console.log("userId:", userId);
-
   //filters events data based on search - to be called in SearchItem/EventsPage.
   const handleFilteredEvents = (searchValue) => {
     if (searchValue === "") {
