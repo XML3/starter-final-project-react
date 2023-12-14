@@ -12,9 +12,10 @@
     "@chakra-ui/react": "^2.5.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "framer-motion": "^9.0.2",
+    "framer-motion": "^9.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.3",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
