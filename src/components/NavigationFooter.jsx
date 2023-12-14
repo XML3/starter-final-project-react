@@ -1,21 +1,21 @@
 import { React } from "react";
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Center } from "@chakra-ui/react";
 
 export const NavigationFooter = () => {
   return (
     <Box
-      h={10}
-      bgColor={"gray.700"}
+      borderTop={"4px"}
+      borderColor="gray.700"
+      h={100}
+      bgColor={"gray.900"}
       color={"whitesmoke"}
       textAlign={"center"}
       fontSize={"sm"}
     >
       <Flex justify={"center"}>
-        <Text>
-          This App and its content is fictional, none of these events are real,
-          except for the artists names. This page was programmed and designed,
-          including graphics and images by 👉🏻 :
-        </Text>
+        <Text mr={"5rem"}>About Us</Text>
+        <Text mr={"5rem"}>Media</Text>
+        <Text mr={"5rem"}>Contact</Text>
         <Text> ©XaglyMontilva 2023</Text>
       </Flex>
     </Box>
