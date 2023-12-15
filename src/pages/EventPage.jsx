@@ -141,15 +141,33 @@ export const EventPage = () => {
 
   return (
     <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
-      <Heading color={"green.200"} ml={"1.5rem"} fontSize={"130px"}>
+      <Heading
+        color={"green.200"}
+        // ml={"1.5rem"}
+        fontSize={{ base: "50px", md: "130px" }}
+        lineHeight={"1.2"}
+        mt={{ base: "0", md: "0" }}
+        ml={{ base: "0.5rem", md: "2rem" }}
+      >
         Electronic Music <br />
         Events
       </Heading>
 
-      <Flex align={"center "} justify={"space-around"} p={6}>
-        <Box>
+      <Flex
+        align={"center "}
+        justify={"space-around"}
+        direction={{ base: "column", md: "row" }} //modifed
+        p={6}
+      >
+        <Box mb={{ base: "2rem", md: "0" }}>
+          {/* modifed from mt={"-15rem"}  👆🏻*/}
+
           <Center>
-            <Heading fontSize={"50px"} color={"pink.500"} mb={4}>
+            <Heading
+              fontSize={{ base: "40px", md: "50px " }} //modifed
+              color={"pink.500"}
+              mb={4}
+            >
               {event.title}
             </Heading>
           </Center>
@@ -160,7 +178,8 @@ export const EventPage = () => {
             bgColor={"green.300"}
             color={"gray.900"}
             mr={6}
-            ml={4}
+            ml={{ base: "1rem", md: "0" }} //modifed from {4}
+            mb={4} //added
           >
             Edit Event
           </Button>
@@ -190,28 +209,34 @@ export const EventPage = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
-
           {/* Delete Event Button */}
           <Button
             onClick={() => handleDeleteClick(event.id)}
             bgColor={"pink.500"}
             color={"gray.900"}
             deleteEvent={deleteEvent}
+            ml={{ base: "1rem", md: "0" }} //modifed
+            mb={4} //added
           >
             Delete Event
           </Button>
         </Box>
 
         {/* event box */}
-        <Flex gap={1} w={["full", "75%"]} flexWrap="wrap" flexDir="column">
+        <Flex
+          gap={1}
+          w={{ base: "full", md: "75%" }} // modied from w={["full", "75%"]}
+          flexWrap="wrap"
+          flexDir="column"
+        >
           <Box
             p={4}
             bgColor={"gray.800"}
-            w={"35rem"}
-            h={"45rem"}
+            w={{ base: "100%", md: "35rem" }} //modifed from  w={"35rem"}
+            h={"auto"} //modifed from  h={"45rem"}
             borderRadius={"md"}
-            ml={"20rem"}
-            mb={"5rem"}
+            ml={{ base: "-1rem", md: "0rem", lg: "10rem", xl: "20rem" }}
+            mb={{ base: "5rem", md: "0" }} //modified
             padding={"2rem"}
           >
             {/* Event image */}
@@ -256,7 +281,12 @@ export const EventPage = () => {
             <Text fontSize={"sm"}>{event.location}</Text>
 
             {/* Start Time and End Time */}
-            <Grid templateColumns="1fr 1fr" gap={8} mt={4} marginTop={"2.5rem"}>
+            <Grid
+              templateColumns={{ base: "1fr", md: "1fr 1fr" }} //modifed from templateColumns="1fr 1fr"
+              gap={8}
+              mt={4}
+              marginTop={"2.5rem"}
+            >
               <Box>
                 <Text
                   fontSize={"1rem"}
