@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 import { Box, Text, Flex, Image } from "@chakra-ui/react";
 
 export const NavigationFooter = () => {
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+
   return (
     <Box
       borderTop={"2px"}
@@ -21,15 +32,57 @@ export const NavigationFooter = () => {
         paddingTop={"10px"}
       >
         <Link to="/about">
-          <Text mr={"5rem"}>About Us</Text>
+          <Text
+            mr={"5rem"}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.normal}
+          >
+            About Us
+          </Text>
         </Link>
 
-        <Text mr={"5rem"}>Media</Text>
-        <Text mr={"5rem"}>Contact</Text>
-        <Text mr={"5rem"}>Bussiness B.V</Text>
-        <Text mr={"5rem"}>FAQ/Help</Text>
-        <Text mr={"5rem"}>Privacy Policy</Text>
-        <Text mr={"5rem"}>Careers</Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          Media
+        </Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          Contact
+        </Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          Bussiness B.V
+        </Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          FAQ/Help
+        </Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          Privacy Policy
+        </Text>
+        <Text
+          mr={"5rem"}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
+          Careers
+        </Text>
       </Flex>
 
       <Flex
@@ -51,7 +104,10 @@ export const NavigationFooter = () => {
             />
           </Flex>
         </Box>
-        <Text>
+        <Text
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.normal}
+        >
           ©2023 XaglyMontilva.All Rights Reserved.Logos and images are property
           of Xagly Montilva
         </Text>
