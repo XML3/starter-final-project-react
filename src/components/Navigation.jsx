@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Box, Heading, Flex, Image } from "@chakra-ui/react";
+import { Box, Heading, Flex } from "@chakra-ui/react";
 
 export const Navigation = () => {
   return (
@@ -34,16 +34,6 @@ export const Navigation = () => {
           </Heading>
         </Link>
       </Flex>
-      {/* <Box>
-        <Flex justify={"flex-end"}>
-          <Image
-            src="../src/img/Drun_n_bass.png"
-            boxSize="50px"
-            objectFit="cover"
-            borderRadius="full"
-          />
-        </Flex>
-      </Box> */}
     </Box>
   );
 };
