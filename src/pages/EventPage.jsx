@@ -140,7 +140,12 @@ export const EventPage = () => {
   };
 
   return (
-    <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
+    <Box
+      bgColor="gray.900"
+      color="whitesmoke"
+      minH="100vh"
+      paddingTop={"100px"}
+    >
       <Heading
         color={"green.200"}
         // ml={"1.5rem"}
@@ -175,11 +180,21 @@ export const EventPage = () => {
           {/* Edit Event Button to open modal*/}
           <Button
             onClick={openModal}
-            bgColor={"green.300"}
-            color={"gray.900"}
+            bgColor={"gray.900"}
+            color={"green.200"}
             mr={6}
             ml={{ base: "1rem", md: "0" }} //modifed from {4}
             mb={4} //added
+            //shadow
+            border="3px solid"
+            borderColor={"green.200"}
+            boxShadow=" 0px 2px 9px 0px whitesmoke"
+            _hover={{
+              bgColor: "green.200",
+              color: "gray.900",
+              boxShadow: "0 0 7px whitesmoke",
+            }}
+            _active={{ boxShadow: "0px 10px 30px 0px whitesmoke" }}
           >
             Edit Event
           </Button>
@@ -212,11 +227,22 @@ export const EventPage = () => {
           {/* Delete Event Button */}
           <Button
             onClick={() => handleDeleteClick(event.id)}
-            bgColor={"pink.500"}
-            color={"gray.900"}
+            bgColor={"gray.900"}
+            color={"pink.500"}
             deleteEvent={deleteEvent}
             ml={{ base: "1rem", md: "0" }} //modifed
             mb={4} //added
+            //shadow
+            //shadow
+            border="1px solid"
+            borderColor={"pink.500"}
+            boxShadow=" 0px 2px 9px 0px whitesmoke"
+            _hover={{
+              bgColor: "pink.500",
+              color: "gray.900",
+              boxShadow: "0 0 7px whitesmoke",
+            }}
+            _active={{ boxShadow: "0px 10px 30px 0px whitesmoke" }}
           >
             Delete Event
           </Button>
@@ -236,7 +262,7 @@ export const EventPage = () => {
             h={"auto"} //modifed from  h={"45rem"}
             borderRadius={"md"}
             ml={{ base: "-1rem", md: "0rem", lg: "10rem", xl: "20rem" }}
-            mb={{ base: "5rem", md: "0" }} //modified
+            mb={{ base: "5rem", md: "10rem" }} //modified
             padding={"2rem"}
           >
             {/* Event image */}
