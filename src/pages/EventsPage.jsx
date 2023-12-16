@@ -48,18 +48,23 @@ export const EventsPage = () => {
 
   return (
     <>
-      <Box bgColor="gray.900" color="whitesmoke" minH="100vh">
+      <Box
+        bgColor="gray.900"
+        color="whitesmoke"
+        minH="100vh"
+        paddingTop={"100px"}
+      >
         <Flex
           align={{ base: "center", md: "flex-start" }}
           justify={"center"}
           minH={"100vh"}
           direction={{ base: "column", md: "row" }}
         >
-          <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "11rem" }}>
+          <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "2rem" }}>
             <Heading
               color={"green.200"}
               // ml={"1.5rem"}
-              fontSize={{ base: "100px", md: "130px" }}
+              fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "130px" }}
               lineHeight={"1.2"}
               mt={{ base: "1rem", md: "0" }}
               ml={{ base: "0.5rem", md: "0" }}
@@ -67,9 +72,6 @@ export const EventsPage = () => {
               Electronic Music <br />
               Events
             </Heading>
-            {/* </Flex> */}
-            {/* <Flex wrap={"wrap"} justify="center" minH="2vh" maxW={"40rem"}> */}
-            {/* <Box mt={"3rem"}> */}
 
             <Text
               color={"gray.300"}
@@ -92,26 +94,30 @@ export const EventsPage = () => {
           <ImgLoop />
         </Center> */}
 
+        {/* This Flex manages the whole Cards Box */}
         <Flex align="center" justify="center" minH="100vh">
           <div className="events-page">
-            {/* <Text fontSize={"1.5rem"} color={"yellow.200"}>
-              Search Events:
-              <SearchItem
-                events={events}
-                handleFilteredEvents={handleFilteredEvents}
-              />
-            </Text> */}
             {/* Modal Form */}
             <Button
               onClick={openModal}
-              bgColor={"green.200"}
-              color={"gray.900"}
-              ml={{ base: "6rem", md: "5rem" }}
+              bgColor={"gray.900"}
+              color={"green.200"}
+              ml={{ base: "6rem", md: "55rem" }}
               mb={{ base: "2rem", md: "5rem" }}
               mt={{ base: "2rem", md: "-40rem" }}
+              //shadow
+              border="1px solid"
+              borderColor={"green.200"}
+              boxShadow=" 0px 2px 9px 0px whitesmoke"
+              _hover={{
+                bgColor: "green.200",
+                color: "gray.900",
+                boxShadow: "0 0 7px whitesmoke",
+              }}
+              _active={{ boxShadow: "0px 10px 30px 0px whitesmoke" }}
             >
               {" "}
-              Add New Event
+              Create New Event
             </Button>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
               <ModalOverlay />
@@ -134,36 +140,49 @@ export const EventsPage = () => {
             {/* Box with Cards */}
             <Box
               p={4}
-              bgColor={"gray.500"}
+              bgColor={"gray.800"}
               w={"100wh"}
               h={"100vh"}
               borderRadius={"md"}
               mr={"2rem"}
-              mb={"3rem"}
+              mb={"1rem"}
               padding={"2rem"}
               overflowY="scroll"
               position={"relative"}
               mt={{ base: "2rem", md: "-20rem" }}
             >
-              {/* Search Event Input */}
+              {/* search box fixed*/}
               <Box
                 position={"sticky"}
-                top={0}
+                backgroundColor={"gray.800"}
+                top={-8}
                 right={0}
-                mt={4}
-                mr={4}
+                mt={-6}
+                mr={0}
                 zIndex={1}
-                p={4}
+                p={1}
               >
-                <Text fontSize={"1.5rem"} color={"yellow.200"}>
-                  Search Events:
-                  <SearchItem
-                    events={events}
-                    handleFilteredEvents={handleFilteredEvents}
-                  />
-                </Text>
+                {/* Search Event Input */}
+                <Flex align={"flex-start"} justify={"flex-start"}>
+                  <Box
+                  // position={"sticky"}
+                  // top={-5}
+                  // right={0}
+                  // mt={-6}
+                  // mr={0}
+                  // zIndex={1}
+                  // p={1}
+                  >
+                    <Text fontSize={"1.2rem"} color={"yellow.200"}>
+                      Search Events:
+                      <SearchItem
+                        events={events}
+                        handleFilteredEvents={handleFilteredEvents}
+                      />
+                    </Text>
+                  </Box>
+                </Flex>
               </Box>
-
               {/* Events Cards */}
               <Flex align={"center"} justify={"center"}>
                 <SimpleGrid columns={columns} gap={8}>
@@ -182,6 +201,106 @@ export const EventsPage = () => {
             </Box>
           </div>
         </Flex>
+
+        <Center>
+          <Box
+            backgroundColor={"gray.900"}
+            border="1px solid"
+            borderColor={"gray.700"}
+            w={{ base: "90%", md: "75%" }}
+            // h={{ base: "100%", md: "50vh" }}
+            padding={{ base: "0.6rem", md: "2rem" }}
+            marginTop={"1rem"}
+            marginBottom={"5rem"}
+            color={"gray.300"}
+          >
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              align={{ base: "center", md: "flex-start" }}
+              wrap={"wrap"}
+            >
+              <Image
+                src="./src/img/Drun_n_bass.png"
+                w={{ base: "100%", md: "50%" }}
+                h={{ base: "auto", md: "auto" }}
+                marginBottom={{ base: "1rem", md: "0" }}
+              />
+              <Text
+                ffontSize={{ base: "0.8rem", md: "sm" }}
+                marginLeft={{ base: "0", md: "1rem" }}
+                flex="1"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
+                felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
+                enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+                tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
+                rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
+                Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
+                rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+                quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam
+                quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+              </Text>
+            </Flex>
+          </Box>
+        </Center>
+
+        <Center>
+          <Box
+            backgroundColor={"gray.900"}
+            border="1px solid"
+            borderColor={"gray.700"}
+            w={{ base: "90%", md: "75%" }}
+            // h={{ base: "100%", md: "50vh" }}
+            padding={{ base: "0.6rem", md: "2rem" }}
+            marginTop={"1rem"}
+            marginBottom={"5rem"}
+            color={"gray.300"}
+          >
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              align={{ base: "center", md: "flex-start" }}
+              wrap={"wrap"}
+            >
+              <Text
+                ffontSize={{ base: "0.8rem", md: "sm" }}
+                marginLeft={{ base: "0", md: "1rem" }}
+                flex="1"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
+                felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
+                enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+                tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
+                rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
+                Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
+                rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
+                quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam
+                quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+              </Text>
+              <Image
+                src="./src/img/on-blog.png"
+                w={{ base: "100%", md: "50%" }}
+                h={{ base: "auto", md: "auto" }}
+                marginBottom={{ base: "1rem", md: "0" }}
+              />
+            </Flex>
+          </Box>
+        </Center>
       </Box>
     </>
   );
