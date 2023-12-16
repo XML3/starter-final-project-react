@@ -7,15 +7,13 @@ export const EventsCard = ({ event }) => {
   //access global fetch from Root
   const { categories } = useContext(DataContext);
   const { image, title, description, startTime, endTime, categoryIds } = event;
-  //console.log("categoryIds:", categoryIds);
-  // console.log("event.categoryIds:", event.categoryIds);
 
   return (
     <div className="event-card">
       <Card
         as={Link}
         to={`/event/${event.id}`}
-        bgColor="gray.700"
+        bgColor="gray.900"
         borderRadius="md"
         w="15rem"
         h="25rem"
