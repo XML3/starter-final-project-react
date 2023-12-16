@@ -1,12 +1,13 @@
 import { React } from "react";
-import { Box, Text, Flex, Center, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { Box, Text, Flex, Image } from "@chakra-ui/react";
 
 export const NavigationFooter = () => {
   return (
     <Box
       borderTop={"2px"}
       borderColor="gray.700"
-      h={"10vh"}
+      h={"20vh"}
       bgColor={"gray.900"}
       color={"whitesmoke"}
       textAlign={"center"}
@@ -19,7 +20,10 @@ export const NavigationFooter = () => {
         fontSize={{ base: "0.5em", md: "0.7em" }}
         paddingTop={"10px"}
       >
-        <Text mr={"5rem"}>About Us</Text>
+        <Link to="/about">
+          <Text mr={"5rem"}>About Us</Text>
+        </Link>
+
         <Text mr={"5rem"}>Media</Text>
         <Text mr={"5rem"}>Contact</Text>
         <Text mr={"5rem"}>Bussiness B.V</Text>
