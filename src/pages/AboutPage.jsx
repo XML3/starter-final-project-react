@@ -2,6 +2,29 @@ import React from "react";
 import { Image, Center, Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 export const AboutPage = () => {
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+
+  //FONT ROBOTO SLAB
+  const robotoSlabFont = "Roboto Slab, serif";
+  const robotoSlabWeight = {
+    fontWeight: {
+      thin: 100,
+      extraLight: 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+    },
+  };
+
   return (
     <Box
       bgColor="gray.900"
@@ -23,6 +46,8 @@ export const AboutPage = () => {
             lineHeight={"1.2"}
             mt={{ base: "1rem", md: "0" }}
             ml={{ base: "0.5rem", md: "0" }}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.semibold}
           >
             About Us
           </Heading>
@@ -50,6 +75,8 @@ export const AboutPage = () => {
               ffontSize={{ base: "0.8rem", md: "sm" }}
               marginLeft={{ base: "0", md: "1rem" }}
               flex="1"
+              fontFamily={robotoSlabFont}
+              fontWeight={robotoSlabWeight.light}
             >
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
