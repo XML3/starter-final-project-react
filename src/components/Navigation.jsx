@@ -2,6 +2,17 @@ import { Link } from "react-router-dom";
 import { Box, Heading, Flex } from "@chakra-ui/react";
 
 export const Navigation = () => {
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+
   return (
     <Box
       borderBottom={"2px"}
@@ -24,12 +35,20 @@ export const Navigation = () => {
           size="md"
           mb={{ base: 2, md: 0 }}
           mr={{ base: 0, md: 8 }}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.semibold}
         >
           <Link to="/">Home</Link>
         </Heading>
 
         <Link to="/event/1">
-          <Heading color={"pink.500"} size="md" mr={8}>
+          <Heading
+            color={"pink.500"}
+            size="md"
+            mr={8}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.semibold}
+          >
             Event
           </Heading>
         </Link>
