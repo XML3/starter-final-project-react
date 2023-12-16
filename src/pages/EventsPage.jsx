@@ -23,7 +23,6 @@ import {
   Button,
   Center,
 } from "@chakra-ui/react";
-import ImgLoop from "../components/ImgLoop";
 
 export const EventsPage = () => {
   const {
