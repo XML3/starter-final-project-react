@@ -34,6 +34,28 @@ export const EventsPage = () => {
     users,
   } = useContext(DataContext);
 
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+  //FONT ROBOT SLAB
+  const robotoSlabFont = "Roboto Slab, serif";
+  const robotoSlabWeight = {
+    fontWeight: {
+      thin: 100,
+      extraLight: 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+    },
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -61,9 +83,11 @@ export const EventsPage = () => {
         >
           <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "2rem" }}>
             <Heading
+              fontFamily={orbitronFontFamily}
+              fontWeight={orbitronWeight.semibold}
               color={"green.200"}
               // ml={"1.5rem"}
-              fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "130px" }}
+              fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "120px" }}
               lineHeight={"1.2"}
               mt={{ base: "1rem", md: "0" }}
               ml={{ base: "0.5rem", md: "0" }}
@@ -79,6 +103,8 @@ export const EventsPage = () => {
               mt={{ base: "1rem", md: "1rem" }}
               maxW={{ base: "100%", md: "45rem" }}
               marginBottom={{ base: "2rem", md: "0" }}
+              fontFamily={robotoSlabFont}
+              fontWeight={robotoSlabWeight.light}
             >
               We aim to provide information on Electronic Music Events in your
               area by offering our service to all promoters for different types
@@ -101,6 +127,8 @@ export const EventsPage = () => {
               onClick={openModal}
               bgColor={"gray.900"}
               color={"green.200"}
+              fontFamily={orbitronFontFamily}
+              fontWeight={orbitronWeight.medium}
               ml={{ base: "6rem", md: "55rem" }}
               mb={{ base: "2rem", md: "5rem" }}
               mt={{ base: "2rem", md: "-40rem" }}
@@ -172,7 +200,12 @@ export const EventsPage = () => {
                   // zIndex={1}
                   // p={1}
                   >
-                    <Text fontSize={"1.2rem"} color={"yellow.200"}>
+                    <Text
+                      fontFamily={orbitronFontFamily}
+                      fontWeight={orbitronWeight.medium}
+                      fontSize={"1rem"}
+                      color={"yellow.200"}
+                    >
                       Search Events:
                       <SearchItem
                         events={events}
@@ -225,9 +258,11 @@ export const EventsPage = () => {
                 marginBottom={{ base: "1rem", md: "0" }}
               />
               <Text
-                ffontSize={{ base: "0.8rem", md: "sm" }}
+                fontSize={{ base: "0.8rem", md: "md" }}
                 marginLeft={{ base: "0", md: "1rem" }}
                 flex="1"
+                fontFamily={robotoSlabFont}
+                fontWeight={robotoSlabWeight.light}
               >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
                 commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -269,9 +304,11 @@ export const EventsPage = () => {
               wrap={"wrap"}
             >
               <Text
-                ffontSize={{ base: "0.8rem", md: "sm" }}
+                fontSize={{ base: "0.8rem", md: "md" }}
                 marginLeft={{ base: "0", md: "1rem" }}
                 flex="1"
+                fontFamily={robotoSlabFont}
+                fontWeight={robotoSlabWeight.light}
               >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
                 commodo ligula eget dolor. Aenean massa. Cum sociis natoque
