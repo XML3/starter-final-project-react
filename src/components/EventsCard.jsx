@@ -8,6 +8,29 @@ export const EventsCard = ({ event }) => {
   const { categories } = useContext(DataContext);
   const { image, title, description, startTime, endTime, categoryIds } = event;
 
+  //FONT ORBITRON
+  const orbitronFontFamily = "Orbitron, sans-serif";
+  const orbitronWeight = {
+    fontWeights: {
+      normal: 400,
+      medium: 600,
+      semibold: 700,
+      bold: 900,
+    },
+  };
+
+  //FONT ROBOTO SLAB
+  const robotoSlabFont = "Roboto Slab, serif";
+  const robotoSlabWeight = {
+    fontWeight: {
+      thin: 100,
+      extraLight: 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+    },
+  };
+
   return (
     <div className="event-card">
       <Card
@@ -21,20 +44,44 @@ export const EventsCard = ({ event }) => {
         _hover={{ transform: "scale(1.01)" }}
       >
         <CardBody>
-          <Heading as="h2" size={"lg"} color={"pink.500"} mb={"1rem"}>
+          <Heading
+            as="h2"
+            size={"lg"}
+            color={"pink.500"}
+            mb={"1rem"}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.medium}
+          >
             {title}
           </Heading>
 
           <Image src={image} borderRadius={"sm"} mb={"1rem"} />
-          <Text fontSize={"sm"} color={"green.200"} mb={"1rem"}>
+          <Text
+            fontSize={"sm"}
+            color={"green.200"}
+            mb={"1rem"}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.normal}
+          >
             {description}
           </Text>
 
-          <Text color={"whitesmoke"} fontSize={"2xs"}>
+          <Text
+            color={"whitesmoke"}
+            fontSize={"2xs"}
+            fontFamily={robotoSlabFont}
+            fontWeight={robotoSlabWeight.thin}
+          >
             {" "}
             Start Time: {startTime}
           </Text>
-          <Text color={"whitesmoke"} fontSize={"2xs"} mb={"0.5rem"}>
+          <Text
+            color={"whitesmoke"}
+            fontSize={"2xs"}
+            mb={"0.5rem"}
+            fontFamily={robotoSlabFont}
+            fontWeight={robotoSlabWeight.thin}
+          >
             End Time: {endTime}
           </Text>
 
@@ -48,7 +95,13 @@ export const EventsCard = ({ event }) => {
                 if (!category) return null;
 
                 return (
-                  <Text key={category.id} color="yellow.300" fontSize={"xs"}>
+                  <Text
+                    key={category.id}
+                    color="yellow.300"
+                    fontSize={"xs"}
+                    fontFamily={orbitronFontFamily}
+                    fontWeight={orbitronWeight.normal}
+                  >
                     {category.name}
                   </Text>
                 );
