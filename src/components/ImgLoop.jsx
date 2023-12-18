@@ -4,21 +4,16 @@ import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
 
 // Import your looping images
-// import fest1 from "../img/fest1.jpg";
-// import fest2 from "../img/fest2.jpg";
-// import festGirl from "../img/festGirl.jpg";
-// import fest3 from "../img/fest3.jpg";
-// import fest4 from "../img/fest4.jpg";
-// import fest5 from "../img/fest5.jpg";
-// import fest6 from "../img/fest6.jpg";
+//import broken_circle_yellow from "../img/broken_circle_yellow.png";
+//import Drun_n_bass from "../img/Drun_n_bass.png";
+import new_x_logo from "../img/new_x_logo.png";
 
-const Paths = ["../img/fest1.jpg"];
 const ImgLoop = () => {
-  //   const images = [fest1, fest2, festGirl, fest3, fest4, fest5, fest6];
+  const images = [new_x_logo];
 
   return (
     <Box mt={4}>
-      {Paths.map((image, index) => (
+      {images.map((image, index) => (
         <motion.div
           key={index}
           style={{
@@ -26,9 +21,9 @@ const ImgLoop = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100%",
-            height: "200px", // Adjust the height as needed
+            height: "1000px", // Adjust the height as needed
           }}
-          animate={{ x: [0, -100, 0], y: [0, -100, 0] }} // Adjust animation as needed
+          animate={{ x: [0, -10, 0], y: [0, -10, -0] }} // Adjust animation as needed
           transition={{ repeat: Infinity, duration: 5 }}
         />
       ))}
