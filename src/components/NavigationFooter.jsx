@@ -48,13 +48,17 @@ export const NavigationFooter = () => {
         >
           Media
         </Text>
-        <Text
-          mr={"5rem"}
-          fontFamily={orbitronFontFamily}
-          fontWeight={orbitronWeight.normal}
-        >
-          Contact
-        </Text>
+
+        <Link to="/contact">
+          <Text
+            mr={"5rem"}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.normal}
+          >
+            Contact
+          </Text>
+        </Link>
+
         <Text
           mr={"5rem"}
           fontFamily={orbitronFontFamily}
