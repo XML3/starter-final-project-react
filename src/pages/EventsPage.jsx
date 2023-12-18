@@ -169,7 +169,7 @@ export const EventsPage = () => {
               p={4}
               bgColor={"gray.800"}
               w={"100%"}
-              h={"100vh"}
+              h={"80vh"}
               borderRadius={"md"}
               mr={"2rem"}
               mb={"1rem"}
