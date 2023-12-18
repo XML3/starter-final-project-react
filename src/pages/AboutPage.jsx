@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Center, Box, Flex, Heading, Text } from "@chakra-ui/react";
+import ImgLoop from "../components/ImgLoop";
 
 export const AboutPage = () => {
   //FONT ORBITRON
@@ -105,6 +106,10 @@ export const AboutPage = () => {
           </Flex>
         </Box>
       </Center>
+
+      {/* <Box h={"100%"}>
+        <ImgLoop />
+      </Box> */}
     </Box>
   );
 };
