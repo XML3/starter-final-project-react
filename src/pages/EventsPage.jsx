@@ -144,7 +144,7 @@ export const EventsPage = () => {
               _active={{ boxShadow: "0px 10px 30px 0px whitesmoke" }}
             >
               {" "}
-              Create New Event
+              Create Event
             </Button>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
               <ModalOverlay />
@@ -168,7 +168,7 @@ export const EventsPage = () => {
             <Box
               p={4}
               bgColor={"gray.800"}
-              w={"100wh"}
+              w={"100%"}
               h={"100vh"}
               borderRadius={"md"}
               mr={"2rem"}
@@ -215,6 +215,7 @@ export const EventsPage = () => {
                   </Box>
                 </Flex>
               </Box>
+
               {/* Events Cards */}
               <Flex align={"center"} justify={"center"}>
                 <SimpleGrid columns={columns} gap={8}>
@@ -234,6 +235,40 @@ export const EventsPage = () => {
           </div>
         </Flex>
 
+        {/* Middle of the page TEXT */}
+        <Center minH="50vh">
+          <Box>
+            <Flex
+              direction="column"
+              align={{ base: "center", md: "center" }}
+              justify="center"
+              wrap="wrap"
+            >
+              <Text
+                fontFamily={orbitronFontFamily}
+                fontWeight={orbitronWeight.semibold}
+                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "60px" }}
+                textAlign="center"
+                marginBottom="1rem"
+                color="gray.300"
+              >
+                Experience the power of
+              </Text>
+              <Text
+                fontFamily={orbitronFontFamily}
+                fontWeight={orbitronWeight.semibold}
+                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "60px" }}
+                textAlign="center"
+                marginBottom="7rem"
+                color="gray.300"
+              >
+                movement and sound
+              </Text>
+            </Flex>
+          </Box>
+        </Center>
+
+        {/* Here starts the bottom section with Text and images  */}
         <Center>
           <Box
             backgroundColor={"gray.900"}
