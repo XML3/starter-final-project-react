@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Box } from "@chakra-ui/react";
 import snap from "../img/path13.png";
+
 import { useInView } from "react-intersection-observer";
 
 const ImgAnimation = () => {
