@@ -46,7 +46,7 @@ export const EventsCard = ({ event }) => {
         <CardBody>
           <Heading
             as="h2"
-            size={"lg"}
+            size={"md"}
             color={"pink.500"}
             mb={"1rem"}
             fontFamily={orbitronFontFamily}
