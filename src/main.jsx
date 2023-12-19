@@ -8,6 +8,7 @@ import { Root } from "./components/Root";
 import UserPage from "./pages/UserPage";
 import AboutPage from "./pages/AboutPage";
 import ContactForm from "./pages/ContactPage";
+import { CareersPage } from "./pages/CareersPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactForm />,
+      },
+      {
+        path: "/careers",
+        element: <CareersPage />,
       },
     ],
   },
