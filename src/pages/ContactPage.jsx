@@ -6,6 +6,7 @@ import {
   Heading,
   Flex,
   Image,
+  Text,
   Input,
   Textarea,
   Button,
@@ -89,21 +90,45 @@ const ContactForm = () => {
         minH={"20vh"}
         direction={{ base: "column", md: "row" }}
       >
-        <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "2rem" }}>
+        <Box
+          ml={{ base: "0", md: "1.5rem" }}
+          mr={{ base: "0", md: "2rem" }}
+          mb={{ base: "0", md: "5rem" }}
+        >
           <Heading
             color={"green.200"}
             // ml={"1.5rem"}
-            fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "130px" }}
+            fontSize={{ base: "24px", md: "30px", lg: "50px", xl: "100px" }}
             lineHeight={"1.2"}
             mt={{ base: "1rem", md: "0" }}
             ml={{ base: "0.5rem", md: "0" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
           >
-            Contact Us
+            Electronic Music <br />
+            Events
           </Heading>
         </Box>
       </Flex>
+
+      <Box
+        ml={{ base: "0", md: "45rem" }}
+        mr={{ base: "0", md: "2rem" }}
+        mb={{ base: "0", md: "2rem" }}
+      >
+        <Text
+          color={"pink.500"}
+          // ml={"1.5rem"}
+          fontSize={{ base: "10px", md: "10px", lg: "25px", xl: "25px" }}
+          lineHeight={"1.2"}
+          mt={{ base: "1rem", md: "0" }}
+          ml={{ base: "0.5rem", md: "0" }}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.semibold}
+        >
+          Contact
+        </Text>
+      </Box>
 
       <Box bgColor="gray.900" color="whitesmoke" maxW="xl" mx={"auto"} p={4}>
         {/* FORM */}
@@ -117,6 +142,7 @@ const ContactForm = () => {
               Name
             </FormLabel>
             <Input
+              placeholder="Full Name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -138,6 +164,7 @@ const ContactForm = () => {
               Email
             </FormLabel>
             <Input
+              placeholder="Email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -159,6 +186,7 @@ const ContactForm = () => {
               Message
             </FormLabel>
             <Textarea
+              placeholder="Write us a message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               focusBorderColor="pink.500"
@@ -177,6 +205,7 @@ const ContactForm = () => {
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.medium}
             mt={"2rem"}
+            mb={"10rem"}
             //shadow
             border="1px solid"
             borderColor={"green.200"}
