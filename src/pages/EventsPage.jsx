@@ -78,7 +78,7 @@ export const EventsPage = () => {
         <Flex
           align={{ base: "center", md: "flex-start" }}
           justify={"center"}
-          minH={"100vh"}
+          minH={"80vh"}
           direction={{ base: "column", md: "row" }}
         >
           <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "2rem" }}>
@@ -87,7 +87,7 @@ export const EventsPage = () => {
               fontWeight={orbitronWeight.semibold}
               color={"green.200"}
               // ml={"1.5rem"}
-              fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "120px" }}
+              fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "100px" }}
               lineHeight={"1.2"}
               mt={{ base: "1rem", md: "0" }}
               ml={{ base: "0.5rem", md: "0" }}
@@ -169,7 +169,7 @@ export const EventsPage = () => {
               p={4}
               bgColor={"gray.800"}
               w={"100%"}
-              h={"80vh"}
+              h={"75vh"}
               borderRadius={"md"}
               mr={"2rem"}
               mb={"1rem"}
@@ -191,15 +191,7 @@ export const EventsPage = () => {
               >
                 {/* Search Event Input */}
                 <Flex align={"flex-start"} justify={"flex-start"}>
-                  <Box
-                  // position={"sticky"}
-                  // top={-5}
-                  // right={0}
-                  // mt={-6}
-                  // mr={0}
-                  // zIndex={1}
-                  // p={1}
-                  >
+                  <Box>
                     <Text
                       fontFamily={orbitronFontFamily}
                       fontWeight={orbitronWeight.medium}
@@ -236,7 +228,7 @@ export const EventsPage = () => {
         </Flex>
 
         {/* Middle of the page TEXT */}
-        <Center minH="50vh">
+        <Center minH="20vh">
           <Box>
             <Flex
               direction="column"
@@ -247,7 +239,7 @@ export const EventsPage = () => {
               <Text
                 fontFamily={orbitronFontFamily}
                 fontWeight={orbitronWeight.semibold}
-                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "60px" }}
+                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "50px" }}
                 textAlign="center"
                 marginBottom="1rem"
                 color="gray.300"
@@ -257,7 +249,7 @@ export const EventsPage = () => {
               <Text
                 fontFamily={orbitronFontFamily}
                 fontWeight={orbitronWeight.semibold}
-                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "60px" }}
+                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "50px" }}
                 textAlign="center"
                 marginBottom="7rem"
                 color="gray.300"
