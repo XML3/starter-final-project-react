@@ -80,13 +80,15 @@ export const NavigationFooter = () => {
         >
           Privacy Policy
         </Text>
-        <Text
-          mr={"5rem"}
-          fontFamily={orbitronFontFamily}
-          fontWeight={orbitronWeight.normal}
-        >
-          Careers
-        </Text>
+        <Link to="/careers">
+          <Text
+            mr={"5rem"}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.normal}
+          >
+            Careers
+          </Text>
+        </Link>
       </Flex>
 
       <Flex
@@ -101,9 +103,9 @@ export const NavigationFooter = () => {
         <Box>
           <Flex justify={"flex-end"}>
             <Image
-              src="../src/img/new_x_logo.png"
-              boxSize="50px"
-              objectFit="cover"
+              src="../src/img/xagly_logo_nobg.png"
+              boxSize="30px"
+              objectFit="scale-down"
               borderRadius="full"
             />
           </Flex>
@@ -112,8 +114,8 @@ export const NavigationFooter = () => {
           fontFamily={orbitronFontFamily}
           fontWeight={orbitronWeight.normal}
         >
-          ©2023 XaglyMontilva.All Rights Reserved.Logos and images are property
-          of Xagly Montilva
+          ©2023 XaglyMontilva.All Rights Reserved. Logos, graphics and images
+          are property of Xagly Montilva
         </Text>
       </Flex>
     </Box>
