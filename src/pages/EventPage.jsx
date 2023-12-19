@@ -172,7 +172,7 @@ export const EventPage = () => {
       <Heading
         color={"green.200"}
         // ml={"1.5rem"}
-        fontSize={{ base: "50px", md: "130px" }}
+        fontSize={{ base: "50px", md: "100px" }}
         lineHeight={"1.2"}
         mt={{ base: "0", md: "0" }}
         ml={{ base: "0.5rem", md: "2rem" }}
