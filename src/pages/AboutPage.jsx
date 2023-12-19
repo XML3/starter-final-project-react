@@ -39,22 +39,45 @@ export const AboutPage = () => {
         minH={"20vh"}
         direction={{ base: "column", md: "row" }}
       >
-        <Box ml={{ base: "0", md: "1.5rem" }} mr={{ base: "0", md: "2rem" }}>
+        <Box
+          ml={{ base: "0", md: "1.5rem" }}
+          mr={{ base: "0", md: "2rem" }}
+          mb={{ base: "0", md: "9rem" }}
+        >
           <Heading
             color={"green.200"}
             // ml={"1.5rem"}
-            fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "130px" }}
+            fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "100px" }}
             lineHeight={"1.2"}
             mt={{ base: "1rem", md: "0" }}
             ml={{ base: "0.5rem", md: "0" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
           >
-            About Us
+            Electronic Music <br />
+            Events
           </Heading>
         </Box>
       </Flex>
 
+      <Box
+        ml={{ base: "0", md: "15rem" }}
+        mr={{ base: "0", md: "2rem" }}
+        mb={{ base: "0", md: "2rem" }}
+      >
+        <Text
+          color={"green.200"}
+          // ml={"1.5rem"}
+          fontSize={{ base: "10px", md: "10px", lg: "25px", xl: "25px" }}
+          lineHeight={"1.2"}
+          mt={{ base: "1rem", md: "0" }}
+          ml={{ base: "0.5rem", md: "0" }}
+          fontFamily={orbitronFontFamily}
+          fontWeight={orbitronWeight.semibold}
+        >
+          About Us
+        </Text>
+      </Box>
       <Center>
         <Box
           backgroundColor={"gray.900"}
