@@ -82,8 +82,6 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
         body: JSON.stringify(formData),
       });
 
-      console.log("API Response:", response);
-
       const data = await response.json();
       if (response.ok) {
         addEvent({ ...formData, id: data.id });
@@ -131,8 +129,6 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
   };
   //handle Save - takeAction - reset data
   const handleSaveClick = async () => {
-    console.log("handleSaveClick called");
-
     //call takeAction to perform the POST request when Save is clicked
     const result = await takeAction();
 
