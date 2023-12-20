@@ -32,23 +32,10 @@ export const EditEvent = ({
     ...initialData,
     categoryIds: initialData.categoryIds || [],
   });
-  // title: "",
-  // image: "",
-  // lineup: "",
-  // description: "",
-  // category: "",
-  // startTime: "",
-  // endTime: "",
-  // location: "",
-  // userName: "",
-  // userImage: "",
 
   //initialData prop to show form fields with event data when opened.
   useEffect(() => {
     if (initialData) {
-      console.log("Initial Data:", initialData);
-      console.log("Event Id:", initialData.eventId);
-      console.log("Current Form Data:", formData);
       setFormData(initialData);
     }
   }, [initialData]);
@@ -60,8 +47,6 @@ export const EditEvent = ({
     console.log("Field:", name, "Value:", value);
 
     if (name === "category") {
-      console.log("Before change-categoryIds:", formData.categoryIds);
-
       const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
 
       setFormData((previousData) => ({
@@ -130,14 +115,12 @@ export const EditEvent = ({
 
   const handleUserEditChange = (event) => {
     const selectedUserId = event.target.value;
-    console.log("Selected User ID:", selectedUserId);
-    console.log("Users Data:", users);
+
     setFormData((previousData) => ({
       ...previousData,
       userName: users.find((user) => user.id === selectedUserId)?.name || "",
       createdBy: selectedUserId,
     }));
-    console.log("Updated FormData:", formData);
   };
 
   return (
@@ -267,9 +250,7 @@ export const EditEvent = ({
             colorScheme="blue"
             mr={3}
             onClick={async () => {
-              console.log("Save button clicked");
               //Form data object ... apend updated data
-              console.log("...To send PUT request...");
               const updatedData = new FormData();
 
               updatedData.append("title", formData.title);
