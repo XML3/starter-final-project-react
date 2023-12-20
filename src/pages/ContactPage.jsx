@@ -101,7 +101,7 @@ const ContactForm = () => {
             fontSize={{ base: "24px", md: "30px", lg: "50px", xl: "100px" }}
             lineHeight={"1.2"}
             mt={{ base: "1rem", md: "0" }}
-            ml={{ base: "0.5rem", md: "0" }}
+            ml={{ base: "0.5rem", md: "8.5rem" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
           >
@@ -206,6 +206,7 @@ const ContactForm = () => {
             fontWeight={orbitronWeight.medium}
             mt={"2rem"}
             mb={"10rem"}
+            fontSize={{ base: "0.8rem", md: "0.8rem" }}
             //shadow
             border="1px solid"
             borderColor={"green.200"}
