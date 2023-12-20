@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 export const UserPage = ({ userId }) => {
   const [user, setUser] = useState(null);
@@ -25,26 +25,34 @@ export const UserPage = ({ userId }) => {
 
   return (
     <div>
-      <Text
-        color={"teal.300"}
-        fontWeight={"bold"}
-        marginBottom={2}
-        marginLeft={"5rem"}
+      <Flex
+        direction={"column"}
+        alignItems={"center"}
+        position={"relative"}
+        right={"3rem"}
+        mb={{ base: "1rem", md: "1rem" }}
       >
-        Event Creator
-      </Text>
-      <Image
-        src={user.image}
-        alt={user.name}
-        w="5rem"
-        h="5rem"
-        borderRadius={"full"}
-        marginBottom={1}
-        marginLeft={"5.5rem"}
-      />
-      <Text fontSize={"sm"} marginLeft={"5rem"}>
-        {user.name}
-      </Text>
+        <Text
+          color={"teal.300"}
+          fontWeight={"bold"}
+          marginBottom={2}
+          marginLeft={"5rem"}
+        >
+          Event Creator
+        </Text>
+        <Image
+          src={user.image}
+          alt={user.name}
+          w={{ base: "3rem", md: "5rem" }}
+          h={{ base: "3rem", md: "5rem" }}
+          borderRadius={"full"}
+          marginBottom={1}
+          marginLeft={"5.5rem"}
+        />
+        <Text fontSize={{ base: "0.7rem", md: "0.8rem" }} marginLeft={"5rem"}>
+          {user.name}
+        </Text>
+      </Flex>
     </div>
   );
 };
