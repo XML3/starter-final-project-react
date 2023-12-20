@@ -9,6 +9,7 @@ import UserPage from "./pages/UserPage";
 import AboutPage from "./pages/AboutPage";
 import ContactForm from "./pages/ContactPage";
 import { CareersPage } from "./pages/CareersPage";
+import { NewsPage } from "./pages/NewsPage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/careers",
         element: <CareersPage />,
+      },
+      {
+        path: "/news",
+        element: <NewsPage />,
       },
     ],
   },
