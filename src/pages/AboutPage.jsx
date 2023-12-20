@@ -50,7 +50,7 @@ export const AboutPage = () => {
             fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "100px" }}
             lineHeight={"1.2"}
             mt={{ base: "1rem", md: "0" }}
-            ml={{ base: "0.5rem", md: "0" }}
+            ml={{ base: "0.5rem", md: "8.5rem" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
           >
@@ -68,7 +68,7 @@ export const AboutPage = () => {
         <Text
           color={"green.200"}
           // ml={"1.5rem"}
-          fontSize={{ base: "10px", md: "10px", lg: "25px", xl: "25px" }}
+          fontSize={{ base: "20px", md: "25px", lg: "25px", xl: "25px" }}
           lineHeight={"1.2"}
           mt={{ base: "1rem", md: "0" }}
           ml={{ base: "0.5rem", md: "0" }}
@@ -96,7 +96,7 @@ export const AboutPage = () => {
             wrap={"wrap"}
           >
             <Text
-              ffontSize={{ base: "0.8rem", md: "sm" }}
+              fontSize={{ base: "0.8rem", md: "sm" }}
               marginLeft={{ base: "0", md: "1rem" }}
               flex="1"
               fontFamily={robotoSlabFont}
