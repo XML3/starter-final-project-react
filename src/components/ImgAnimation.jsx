@@ -47,7 +47,7 @@ const ImgAnimation = () => {
   return (
     <Box
       ref={ref}
-      w={{ base: "100%", md: "30%" }}
+      w={{ base: "80%", md: "30%" }}
       h="auto"
       overflow="hidden"
       mb={{ base: "2rem", md: "0" }}
