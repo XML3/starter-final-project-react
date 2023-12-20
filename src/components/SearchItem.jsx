@@ -11,7 +11,9 @@ export const SearchItem = ({ handleFilteredEvents }) => {
     <div className="search item">
       <TextInput
         placeholder="Name or Location"
+        fontSize={{ base: "0.7rem", md: "0.7rem" }}
         mb={"3rem"}
+        w={{ base: "9rem", md: "20rem" }}
         onChange={handleChange}
       />
     </div>
