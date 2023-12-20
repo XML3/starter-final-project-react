@@ -107,16 +107,18 @@ export const Navigation = () => {
           </Text>
         </Link>
 
-        <Text
-          color={"gray.200"}
-          fontSize={16}
-          mb={{ base: 2, md: 0 }}
-          mr={{ base: 0, md: 20 }}
-          fontFamily={orbitronFontFamily}
-          fontWeight={orbitronWeight.semibold}
-        >
-          News
-        </Text>
+        <Link to="/news">
+          <Text
+            color={"gray.200"}
+            fontSize={16}
+            mb={{ base: 2, md: 0 }}
+            mr={{ base: 0, md: 20 }}
+            fontFamily={orbitronFontFamily}
+            fontWeight={orbitronWeight.semibold}
+          >
+            News
+          </Text>
+        </Link>
       </Flex>
     </Box>
   );
