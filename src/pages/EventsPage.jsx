@@ -129,9 +129,10 @@ export const EventsPage = () => {
               color={"green.200"}
               fontFamily={orbitronFontFamily}
               fontWeight={orbitronWeight.medium}
-              ml={{ base: "6rem", md: "55rem" }}
+              ml={{ base: "7rem", md: "55rem" }}
               mb={{ base: "2rem", md: "5rem" }}
               mt={{ base: "2rem", md: "-40rem" }}
+              fontSize={{ base: "0.8rem", md: "0.8rem" }}
               //shadow
               border="1px solid"
               borderColor={"green.200"}
@@ -168,15 +169,17 @@ export const EventsPage = () => {
             <Box
               p={4}
               bgColor={"gray.800"}
-              w={"100%"}
+              w={{ base: "100%", md: "100%" }}
               h={"75vh"}
               borderRadius={"md"}
-              mr={"2rem"}
+              mr={{ base: 0, md: "2rem" }}
               mb={"1rem"}
+              ml={{ base: 0, md: "-0.5rem" }}
               padding={"2rem"}
               overflowY="scroll"
               position={"relative"}
               mt={{ base: "2rem", md: "-20rem" }}
+              left={{ base: -6, md: 0 }}
             >
               {/* search box fixed*/}
               <Box
@@ -185,7 +188,7 @@ export const EventsPage = () => {
                 top={-8}
                 right={0}
                 mt={-6}
-                mr={0}
+                ml={{ base: "0.1rem", md: "0" }}
                 zIndex={1}
                 p={1}
               >
@@ -195,7 +198,7 @@ export const EventsPage = () => {
                     <Text
                       fontFamily={orbitronFontFamily}
                       fontWeight={orbitronWeight.medium}
-                      fontSize={"1rem"}
+                      fontSize={{ base: "1rem", md: "1rem" }}
                       color={"yellow.200"}
                     >
                       Search Events:
@@ -210,7 +213,13 @@ export const EventsPage = () => {
 
               {/* Events Cards */}
               <Flex align={"center"} justify={"center"}>
-                <SimpleGrid columns={columns} gap={8}>
+                <SimpleGrid
+                  columns={columns}
+                  gap={8}
+                  position={"relative"}
+                  right={{ base: 14, md: 0 }}
+                  w={{ base: "50%", md: "100%" }}
+                >
                   {/* //map through filtered events/+ Search functionality - Root component/ SeearchItem component*/}
                   {filteredEvents.map((event) => (
                     <Link to={`/event/${event.id}`} key={event.id}>
@@ -228,7 +237,7 @@ export const EventsPage = () => {
         </Flex>
 
         {/* Middle of the page TEXT */}
-        <Center minH="20vh">
+        <Center minH="20vh" mt={{ base: "3rem", md: "-10rem" }}>
           <Box>
             <Flex
               direction="column"
