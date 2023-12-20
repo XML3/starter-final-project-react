@@ -58,8 +58,8 @@ export const CareersPage = () => {
             // ml={"1.5rem"}
             fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "100px" }}
             lineHeight={"1.2"}
-            mt={{ base: "1rem", md: "0" }}
-            ml={{ base: "0.5rem", md: "0" }}
+            mt={{ base: "3rem", md: "0" }}
+            ml={{ base: "0.5rem", md: "8.5rem" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
           >
@@ -75,18 +75,19 @@ export const CareersPage = () => {
           borderBottom={"1px"}
           fontFamily={robotoSlabFont}
           fontWeight={robotoSlabWeight.medium}
-          fontSize={"1.3rem"}
+          fontSize={{ base: "20px", md: "1.3rem" }}
           pb={4}
         >
           Job Openings
         </Text>
       </Box>
 
-      <Box w={"50%"} ml={"25%"}>
+      <Box w={"50%"} ml={{ base: "15%", md: "25%" }}>
         <Text
           color={"gray.500"}
           fontFamily={robotoSlabFont}
           fontWeight={robotoSlabWeight.medium}
+          fontSize={{ base: "15px", md: "1rem" }}
           ml={"35%"}
           pt={9}
         >
