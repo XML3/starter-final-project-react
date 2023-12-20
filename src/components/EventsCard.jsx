@@ -71,6 +71,7 @@ export const EventsCard = ({ event }) => {
             fontSize={"2xs"}
             fontFamily={robotoSlabFont}
             fontWeight={robotoSlabWeight.thin}
+            mt={{ base: "30px", md: "40px" }}
           >
             {" "}
             Start Time: {startTime}
@@ -98,7 +99,8 @@ export const EventsCard = ({ event }) => {
                   <Text
                     key={category.id}
                     color="yellow.300"
-                    fontSize={"xs"}
+                    mt={{ base: "30px", md: "40px" }}
+                    fontSize={{ base: "0.7rem", md: "0.8rem" }}
                     fontFamily={orbitronFontFamily}
                     fontWeight={orbitronWeight.normal}
                   >
