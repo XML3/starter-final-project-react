@@ -32,6 +32,7 @@ export const EventsPage = () => {
     categories,
     filteredEvents,
     users,
+    articles,
   } = useContext(DataContext);
 
   //FONT ORBITRON
@@ -270,109 +271,48 @@ export const EventsPage = () => {
         </Center>
 
         {/* Here starts the bottom section with Text and images  */}
-        <Center>
-          <Box
-            backgroundColor={"gray.900"}
-            border="1px solid"
-            borderColor={"gray.700"}
-            w={{ base: "90%", md: "75%" }}
-            // h={{ base: "100%", md: "50vh" }}
-            padding={{ base: "0.6rem", md: "2rem" }}
-            marginTop={"1rem"}
-            marginBottom={"5rem"}
-            color={"gray.300"}
-          >
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              align={{ base: "center", md: "flex-start" }}
-              wrap={"wrap"}
+        {articles.map((item, index) => (
+          <Center key={articles.id}>
+            <Box
+              backgroundColor={"gray.900"}
+              border="1px solid"
+              borderColor={"gray.700"}
+              w={{ base: "90%", md: "75%" }}
+              // h={{ base: "100%", md: "50vh" }}
+              padding={{ base: "0.6rem", md: "2rem" }}
+              marginTop={"1rem"}
+              marginBottom={"5rem"}
+              color={"gray.300"}
             >
-              <Image
-                src="./src/img/Drun_n_bass.png"
-                w={{ base: "100%", md: "50%" }}
-                h={{ base: "auto", md: "auto" }}
-                marginBottom={{ base: "1rem", md: "0" }}
-              />
-              <Text
-                fontSize={{ base: "0.8rem", md: "md" }}
-                marginLeft={{ base: "0", md: "1rem" }}
-                flex="1"
-                fontFamily={robotoSlabFont}
-                fontWeight={robotoSlabWeight.light}
+              <Flex
+                //use the index to modify the render logic of map to determine it is even or odd in order to invert the section (image, text placement of each id)
+                direction={{
+                  base: "column",
+                  md: index % 2 === 0 ? "row" : "row-reverse",
+                }}
+                align={{ base: "center", md: "flex-start" }}
+                wrap={"wrap"}
               >
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
-                felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-                enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
-                tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
-                rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-                Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
-                quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam
-                quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-              </Text>
-            </Flex>
-          </Box>
-        </Center>
-
-        <Center>
-          <Box
-            backgroundColor={"gray.900"}
-            border="1px solid"
-            borderColor={"gray.700"}
-            w={{ base: "90%", md: "75%" }}
-            // h={{ base: "100%", md: "50vh" }}
-            padding={{ base: "0.6rem", md: "2rem" }}
-            marginTop={"1rem"}
-            marginBottom={"5rem"}
-            color={"gray.300"}
-          >
-            <Flex
-              direction={{ base: "column", md: "row" }}
-              align={{ base: "center", md: "flex-start" }}
-              wrap={"wrap"}
-            >
-              <Text
-                fontSize={{ base: "0.8rem", md: "md" }}
-                marginLeft={{ base: "0", md: "1rem" }}
-                flex="1"
-                fontFamily={robotoSlabFont}
-                fontWeight={robotoSlabWeight.light}
-              >
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
-                felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-                enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
-                tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
-                rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-                Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem
-                quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam
-                quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-              </Text>
-              <Image
-                src="./src/img/on-blog.png"
-                w={{ base: "100%", md: "50%" }}
-                h={{ base: "auto", md: "auto" }}
-                marginBottom={{ base: "1rem", md: "0" }}
-              />
-            </Flex>
-          </Box>
-        </Center>
+                <Image
+                  //src="./src/img/Drun_n_bass.png"
+                  src={item.image}
+                  w={{ base: "100%", md: "50%" }}
+                  h={{ base: "auto", md: "auto" }}
+                  marginBottom={{ base: "1rem", md: "0" }}
+                />
+                <Text
+                  fontSize={{ base: "0.8rem", md: "md" }}
+                  marginLeft={{ base: "0", md: "1rem" }}
+                  flex="1"
+                  fontFamily={robotoSlabFont}
+                  fontWeight={robotoSlabWeight.light}
+                >
+                  {item.text}
+                </Text>
+              </Flex>
+            </Box>
+          </Center>
+        ))}
       </Box>
     </>
   );
