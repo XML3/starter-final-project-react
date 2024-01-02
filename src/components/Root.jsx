@@ -16,6 +16,7 @@ export const Root = ({ initialEvents, children }) => {
   const [users, setUsers] = useState([]);
   const [description, setDescription] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   const toast = useToast();
 
@@ -61,6 +62,11 @@ export const Root = ({ initialEvents, children }) => {
           const userData = await userResponse.json();
           setUsers(userData);
         }
+
+        //fetch Articles (mid section in EventsPage)
+        const articleResponse = await fetch("http://localhost:3000/articles");
+        const articleData = await articleResponse.json();
+        setArticles(articleData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -138,6 +144,7 @@ export const Root = ({ initialEvents, children }) => {
     filteredEvents,
     addEvent,
     deleteEvent,
+    articles,
   };
 
   return (
