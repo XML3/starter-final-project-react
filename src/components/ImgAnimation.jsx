@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Box } from "@chakra-ui/react";
-import snap from "../img/path13.png";
 
 import { useInView } from "react-intersection-observer";
 
-const ImgAnimation = () => {
+const ImgAnimation = ({ imgAnimation }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
   const [isAnimating, setIsAnimating] = useState(false);
@@ -44,6 +43,8 @@ const ImgAnimation = () => {
     }
   }, [inView, controls, isAnimating]);
 
+  const imgUrl = imgAnimation ? imgAnimation.image : null;
+
   return (
     <Box
       ref={ref}
@@ -52,16 +53,19 @@ const ImgAnimation = () => {
       overflow="hidden"
       mb={{ base: "2rem", md: "0" }}
       mt={{ base: "3rem", md: "4rem" }}
+      style={{ visibility: inView ? "visible" : "hidden" }}
     >
-      <motion.img
-        src={snap}
-        alt="animatedImage"
-        style={{
-          width: "100%",
-          height: "auto%",
-        }}
-        animate={controls}
-      />
+      {imgUrl && (
+        <motion.img
+          src={imgUrl}
+          alt="animatedImage"
+          style={{
+            width: "100%",
+            height: "auto%",
+          }}
+          animate={controls}
+        />
+      )}
     </Box>
   );
 };
