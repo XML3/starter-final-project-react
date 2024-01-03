@@ -19,7 +19,7 @@ import {
 
 const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
   const formRef = useRef(null);
-  //console.log(formRef.current);
+
   const toast = useToast();
 
   const { addEvent } = useContext(DataContext);
