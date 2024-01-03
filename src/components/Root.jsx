@@ -17,6 +17,7 @@ export const Root = ({ initialEvents, children }) => {
   const [description, setDescription] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [imgAnimation, setImgAnimation] = useState([]);
 
   const toast = useToast();
 
@@ -67,6 +68,13 @@ export const Root = ({ initialEvents, children }) => {
         const articleResponse = await fetch("http://localhost:3000/articles");
         const articleData = await articleResponse.json();
         setArticles(articleData);
+
+        //fetch imageAnimation
+        const animatedImgResponse = await fetch(
+          "http://localhost:3000/imgAnimation"
+        );
+        const animateData = await animatedImgResponse.json();
+        setImgAnimation(animateData[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -145,6 +153,7 @@ export const Root = ({ initialEvents, children }) => {
     addEvent,
     deleteEvent,
     articles,
+    imgAnimation,
   };
 
   return (
