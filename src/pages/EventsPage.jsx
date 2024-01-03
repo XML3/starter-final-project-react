@@ -33,6 +33,7 @@ export const EventsPage = () => {
     filteredEvents,
     users,
     articles,
+    imgAnimation,
   } = useContext(DataContext);
 
   //FONT ORBITRON
@@ -113,7 +114,7 @@ export const EventsPage = () => {
               human lives through movement and sound.
             </Text>
           </Box>
-          <ImgAnimation />
+          <ImgAnimation imgAnimation={imgAnimation} />
         </Flex>
         {/* 
         <Center>
