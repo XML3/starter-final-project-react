@@ -13,6 +13,8 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
+  useToast,
+  Toast,
 } from "@chakra-ui/react";
 
 //FONT ORBITRON
@@ -44,6 +46,8 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const toast = useToast();
+
   const isNameError = isSubmitted && name === "";
   const isEmailError = isSubmitted && email === "";
   const isMessageError = isSubmitted && message === "";
@@ -72,9 +76,23 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        console.log("From submitted successfully");
+        // console.log("From submitted successfully");
+        toast({
+          title: "Form Submitted",
+          description: "Form successfully submitted",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
       } else {
-        console.log("Error submitting form");
+        //console.log("Error submitting form");
+        toast({
+          title: "Error",
+          description: "An Error has occcurred while submitting the form",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
       }
     } catch (error) {
       console.error("Error:", error);
