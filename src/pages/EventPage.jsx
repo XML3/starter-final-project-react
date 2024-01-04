@@ -200,7 +200,7 @@ export const EventPage = () => {
           <Center>
             <Heading
               fontSize={{ base: "30px", md: "45px " }} //modifed
-              color={"pink.500"}
+              color={"green.200"}
               mb={4}
               fontFamily={orbitronFontFamily}
               fontWeight={orbitronWeight.medium}
@@ -409,19 +409,21 @@ export const EventPage = () => {
             </Grid>
 
             {/* Description */}
-            <Text
-              fontSize={{ base: "0.7rem", md: "0.8rem" }}
-              color={"green.200"}
-              mb={"1rem"}
-              fontFamily={orbitronFontFamily}
-              fontWeight={orbitronWeight.medium}
-            >
-              {event.description}
-            </Text>
+            <Center>
+              <Text
+                fontSize={{ base: "0.7rem", md: "0.8rem" }}
+                color={"teal.300"}
+                mb={"0.5rem"}
+                fontFamily={orbitronFontFamily}
+                fontWeight={orbitronWeight.medium}
+              >
+                {event.description}
+              </Text>
+            </Center>
 
             {/* //categories */}
             <Center>
-              <Stack direction={"row"} mt={4}>
+              <Stack direction={"row"} mt={2}>
                 {/* checks  if it is indeed an array */}
                 {Array.isArray(event.categoryIds) ? (
                   event.categoryIds.map((categoryId) => {
