@@ -201,7 +201,7 @@ export const EventsPage = () => {
                       fontFamily={orbitronFontFamily}
                       fontWeight={orbitronWeight.medium}
                       fontSize={{ base: "1rem", md: "1rem" }}
-                      color={"yellow.200"}
+                      color={"gray.200"}
                     >
                       Search Events:
                       <SearchItem
