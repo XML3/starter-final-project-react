@@ -66,7 +66,7 @@ export const AboutPage = () => {
         mb={{ base: "0", md: "2rem" }}
       >
         <Text
-          color={"green.200"}
+          color={"gray.200"}
           // ml={"1.5rem"}
           fontSize={{ base: "20px", md: "25px", lg: "25px", xl: "25px" }}
           lineHeight={"1.2"}
