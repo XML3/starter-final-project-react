@@ -134,7 +134,7 @@ const ContactForm = () => {
         mb={{ base: "0", md: "2rem" }}
       >
         <Text
-          color={"pink.500"}
+          color={"gray.200"}
           // ml={"1.5rem"}
           fontSize={{ base: "15px", md: "10px", lg: "25px", xl: "25px" }}
           mt={{ base: "1rem", md: "0" }}
