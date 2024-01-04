@@ -1,4 +1,12 @@
-import { Card, CardBody, Stack, Heading, Text, Image } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Stack,
+  Heading,
+  Text,
+  Image,
+  Center,
+} from "@chakra-ui/react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import DataContext from "./Root";
@@ -87,31 +95,33 @@ export const EventsCard = ({ event }) => {
           </Text>
 
           {/* Display categories */}
-          <Stack direction="row">
-            {Array.isArray(event.categoryIds) ? (
-              event.categoryIds.map((categoryId) => {
-                const category = categories.find(
-                  (category) => category.id === categoryId
-                );
-                if (!category) return null;
+          <Center>
+            <Stack direction="row">
+              {Array.isArray(event.categoryIds) ? (
+                event.categoryIds.map((categoryId) => {
+                  const category = categories.find(
+                    (category) => category.id === categoryId
+                  );
+                  if (!category) return null;
 
-                return (
-                  <Text
-                    key={category.id}
-                    color="yellow.300"
-                    mt={{ base: "30px", md: "40px" }}
-                    fontSize={{ base: "0.7rem", md: "0.8rem" }}
-                    fontFamily={orbitronFontFamily}
-                    fontWeight={orbitronWeight.normal}
-                  >
-                    {category.name}
-                  </Text>
-                );
-              })
-            ) : (
-              <Text>No categories available</Text>
-            )}
-          </Stack>
+                  return (
+                    <Text
+                      key={category.id}
+                      color="yellow.300"
+                      mt={{ base: "30px", md: "40px" }}
+                      fontSize={{ base: "0.7rem", md: "0.8rem" }}
+                      fontFamily={orbitronFontFamily}
+                      fontWeight={orbitronWeight.normal}
+                    >
+                      {category.name}
+                    </Text>
+                  );
+                })
+              ) : (
+                <Text>No categories available</Text>
+              )}
+            </Stack>
+          </Center>
         </CardBody>
       </Card>
     </div>
