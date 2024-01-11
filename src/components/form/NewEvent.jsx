@@ -46,7 +46,8 @@ const NewEvent = ({ isOpen, onClose, onEventAdded, categories, users }) => {
     if (name === "categoryIds") {
       setFormData((previousData) => ({
         ...previousData,
-        categoryIds: [parseInt(value)],
+        // categoryIds: [parseInt(value)],
+        categoryIds: [value],
       }));
     } else if (name === "createdBy") {
       setFormData((previousData) => ({
