@@ -47,7 +47,8 @@ export const EditEvent = ({
     console.log("Field:", name, "Value:", value);
 
     if (name === "category") {
-      const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
+      // const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
+      const categoryIdArray = value === "" ? [] : [value];
 
       setFormData((previousData) => ({
         ...previousData,
