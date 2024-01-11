@@ -44,8 +44,6 @@ export const EditEvent = ({
   const handleInputEditChange = (event) => {
     const { name, value } = event.target;
 
-    console.log("Field:", name, "Value:", value);
-
     if (name === "category") {
       // const categoryIdArray = value === "" ? [] : [parseInt(value, 10)];
       const categoryIdArray = value === "" ? [] : [value];
