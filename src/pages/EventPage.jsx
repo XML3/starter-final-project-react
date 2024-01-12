@@ -295,7 +295,9 @@ export const EventPage = () => {
         >
           <Box
             p={4}
-            bgColor={"gray.800"}
+            bgColor={"gray.900"}
+            border="1px solid"
+            borderColor={"gray.700"}
             w={{ base: "100%", md: "35rem" }} //modifed from  w={"35rem"}
             h={"auto"} //modifed from  h={"45rem"}
             borderRadius={"md"}
