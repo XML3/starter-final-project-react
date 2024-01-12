@@ -46,22 +46,26 @@ export const EventsCard = ({ event }) => {
         to={`/event/${event.id}`}
         bgColor="gray.900"
         borderRadius="md"
+        border="1px solid"
+        borderColor={"gray.700"}
         w="15rem"
         h="25rem"
         cursor="pointer"
         _hover={{ transform: "scale(1.01)" }}
       >
         <CardBody>
-          <Heading
-            as="h2"
-            size={"md"}
-            color={"pink.500"}
-            mb={"1rem"}
-            fontFamily={orbitronFontFamily}
-            fontWeight={orbitronWeight.medium}
-          >
-            {title}
-          </Heading>
+          <Center>
+            <Heading
+              as="h2"
+              size={"md"}
+              color={"pink.500"}
+              mb={"1rem"}
+              fontFamily={orbitronFontFamily}
+              fontWeight={orbitronWeight.medium}
+            >
+              {title}
+            </Heading>
+          </Center>
 
           <Image src={image} borderRadius={"sm"} mb={"1rem"} />
           <Text
@@ -109,7 +113,7 @@ export const EventsCard = ({ event }) => {
                       key={category.id}
                       color="yellow.300"
                       mt={{ base: "30px", md: "40px" }}
-                      fontSize={{ base: "0.7rem", md: "0.8rem" }}
+                      fontSize={{ base: "0.7rem", md: "0.7rem" }}
                       fontFamily={orbitronFontFamily}
                       fontWeight={orbitronWeight.normal}
                     >
