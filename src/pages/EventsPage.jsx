@@ -170,10 +170,12 @@ export const EventsPage = () => {
             {/* Box with Cards */}
             <Box
               p={4}
-              bgColor={"gray.800"}
+              bgColor={"gray.900"}
               w={{ base: "100%", md: "100%" }}
               h={"75vh"}
               borderRadius={"md"}
+              border="1px solid"
+              borderColor={"gray.700"}
               mr={{ base: 0, md: "2rem" }}
               mb={"1rem"}
               ml={{ base: 0, md: "-0.5rem" }}
@@ -186,7 +188,7 @@ export const EventsPage = () => {
               {/* search box fixed*/}
               <Box
                 position={"sticky"}
-                backgroundColor={"gray.800"}
+                backgroundColor={"gray.900"}
                 top={-8}
                 right={0}
                 mt={-6}
