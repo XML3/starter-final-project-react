@@ -5,6 +5,7 @@ import NewEvent from "../components/form/NewEvent";
 import { SearchItem } from "../components/SearchItem";
 import DataContext from "../components/Root";
 import ImgAnimation from "../components/ImgAnimation";
+import TextAnimation from "../components/TextAnimation";
 
 import {
   Heading,
@@ -240,38 +241,9 @@ export const EventsPage = () => {
           </div>
         </Flex>
 
-        {/* Middle of the page TEXT */}
-        <Center minH="20vh" mt={{ base: "3rem", md: "-10rem" }}>
-          <Box>
-            <Flex
-              direction="column"
-              align={{ base: "center", md: "center" }}
-              justify="center"
-              wrap="wrap"
-            >
-              <Text
-                fontFamily={orbitronFontFamily}
-                fontWeight={orbitronWeight.semibold}
-                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "50px" }}
-                textAlign="center"
-                marginBottom="1rem"
-                color="gray.300"
-              >
-                Experience the power of
-              </Text>
-              <Text
-                fontFamily={orbitronFontFamily}
-                fontWeight={orbitronWeight.semibold}
-                fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "50px" }}
-                textAlign="center"
-                marginBottom="7rem"
-                color="gray.300"
-              >
-                movement and sound
-              </Text>
-            </Flex>
-          </Box>
-        </Center>
+        <Box mt={{ base: "4rem", md: "6rem" }} mb="3rem">
+          <TextAnimation />
+        </Box>
 
         {/* Here starts the bottom section with Text and images  */}
         {articles.map((item, index) => (
