@@ -118,9 +118,7 @@ export const EventsPage = () => {
           <ImgAnimation imgAnimation={imgAnimation} />
         </Flex>
         {/* 
-        <Center>
-          <ImgLoop />
-        </Center> */}
+
 
         {/* This Flex manages the whole Cards Box */}
         <Flex align="center" justify="center" minH="100vh">
