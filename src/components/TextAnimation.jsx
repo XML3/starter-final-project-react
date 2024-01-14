@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { InView, useInView } from "react-intersection-observer";
-import { Box, Text, Flex, Center } from "@chakra-ui/react";
+import { Text, Flex, Center } from "@chakra-ui/react";
 
 const TextAnimation = () => {
   //FONT ORBITRON
@@ -52,13 +52,14 @@ const TextAnimation = () => {
           animate={{ x: 30 }}
           transition={{
             duration: "2",
-            delay: "0.5",
+            delay: "0.8",
           }}
           style={textStyle}
         >
           <Text
             fontSize={{ base: "20px", md: "30px", lg: "40px", xl: "50px" }}
             textAlign="center"
+            paddingBottom={2.5}
           >
             Experience the Power of
           </Text>
