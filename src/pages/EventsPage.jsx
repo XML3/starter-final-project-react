@@ -105,7 +105,7 @@ export const EventsPage = () => {
               fontSize={{ base: "18px", md: "20px" }}
               mt={{ base: "1rem", md: "1rem" }}
               maxW={{ base: "100%", md: "45rem" }}
-              marginBottom={{ base: "2rem", md: "0" }}
+              marginBottom={{ base: "2rem", md: "2rem" }}
               fontFamily={robotoSlabFont}
               fontWeight={robotoSlabWeight.light}
             >
@@ -132,7 +132,7 @@ export const EventsPage = () => {
               fontWeight={orbitronWeight.medium}
               ml={{ base: "7rem", md: "55rem" }}
               mb={{ base: "2rem", md: "5rem" }}
-              mt={{ base: "2rem", md: "-40rem" }}
+              mt={{ base: "2rem", md: "-20rem" }}
               fontSize={{ base: "0.8rem", md: "0.8rem" }}
               //shadow
               border="1px solid"
@@ -171,7 +171,7 @@ export const EventsPage = () => {
               p={4}
               bgColor={"gray.900"}
               w={{ base: "100%", md: "100%" }}
-              h={"75vh"}
+              h={"100%"}
               borderRadius={"md"}
               border="1px solid"
               borderColor={"gray.700"}
@@ -179,13 +179,13 @@ export const EventsPage = () => {
               mb={"1rem"}
               ml={{ base: 0, md: "-0.5rem" }}
               padding={"2rem"}
-              overflowY="scroll"
+              // overflowY="scroll"
               position={"relative"}
-              mt={{ base: "2rem", md: "-20rem" }}
+              mt={{ base: "2rem", md: "-10rem" }}
               left={{ base: -6, md: 0 }}
             >
               {/* search box fixed*/}
-              <Box
+              {/* <Box
                 position={"sticky"}
                 backgroundColor={"gray.900"}
                 top={-8}
@@ -194,25 +194,25 @@ export const EventsPage = () => {
                 ml={{ base: "0.1rem", md: "0" }}
                 zIndex={1}
                 p={1}
-              >
-                {/* Search Event Input */}
-                <Flex align={"flex-start"} justify={"flex-start"}>
-                  <Box>
-                    <Text
-                      fontFamily={orbitronFontFamily}
-                      fontWeight={orbitronWeight.medium}
-                      fontSize={{ base: "1rem", md: "1rem" }}
-                      color={"gray.200"}
-                    >
-                      Search Events:
-                      <SearchItem
-                        events={events}
-                        handleFilteredEvents={handleFilteredEvents}
-                      />
-                    </Text>
-                  </Box>
-                </Flex>
-              </Box>
+              > */}
+              {/* Search Event Input */}
+              <Flex align={"flex-start"} justify={"flex-start"}>
+                <Box>
+                  <Text
+                    fontFamily={orbitronFontFamily}
+                    fontWeight={orbitronWeight.medium}
+                    fontSize={{ base: "1rem", md: "1rem" }}
+                    color={"gray.200"}
+                  >
+                    Search Events:
+                    <SearchItem
+                      events={events}
+                      handleFilteredEvents={handleFilteredEvents}
+                    />
+                  </Text>
+                </Box>
+              </Flex>
+              {/* </Box> */}
 
               {/* Events Cards */}
               <Flex align={"center"} justify={"center"}>
@@ -239,7 +239,7 @@ export const EventsPage = () => {
           </div>
         </Flex>
 
-        <Box mt={{ base: "4rem", md: "6rem" }} mb="3rem">
+        <Box mt={{ base: "4rem", md: "20rem" }} mb="3rem">
           <TextAnimation />
         </Box>
 
