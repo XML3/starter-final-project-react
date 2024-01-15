@@ -58,7 +58,7 @@ export const EventsCard = ({ event }) => {
             <Heading
               as="h2"
               size={"md"}
-              color={"pink.500"}
+              color={"green.200"}
               mb={"1rem"}
               fontFamily={orbitronFontFamily}
               fontWeight={orbitronWeight.medium}
@@ -67,7 +67,7 @@ export const EventsCard = ({ event }) => {
             </Heading>
           </Center>
 
-          <Image src={image} borderRadius={"sm"} mb={"1rem"} />
+          <Image src={image} borderRadius={"full"} mb={"1rem"} />
           <Text
             fontSize={"sm"}
             color={"green.200"}
@@ -111,7 +111,7 @@ export const EventsCard = ({ event }) => {
                   return (
                     <Text
                       key={category.id}
-                      color="yellow.300"
+                      color="pink.500"
                       mt={{ base: "30px", md: "40px" }}
                       fontSize={{ base: "0.7rem", md: "0.7rem" }}
                       fontFamily={orbitronFontFamily}
