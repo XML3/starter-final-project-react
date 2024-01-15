@@ -3,6 +3,7 @@ import React from "react";
 import { UserPage } from "./UserPage";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import Typewriter from "../components/Typewriter";
 
 import { EditEvent } from "../components/form/EditEvent";
 import {
@@ -27,7 +28,7 @@ import {
 import DataContext from "../components/Root";
 
 export const EventPage = () => {
-  const { deleteEvent } = useContext(DataContext);
+  const { deleteEvent, header } = useContext(DataContext);
 
   const { eventId } = useParams();
   const navigate = useNavigate();
@@ -178,9 +179,11 @@ export const EventPage = () => {
         ml={{ base: "0.9rem", md: "10rem" }}
         fontFamily={orbitronFontFamily}
         fontWeight={orbitronWeight.semibold}
+        maxW={{ base: "100%", md: "900px" }}
       >
-        Electronic Music <br />
-        Events
+        <Typewriter text={header} delay={100} />
+        {/* Electronic Music <br />
+        Events */}
       </Heading>
 
       <Flex

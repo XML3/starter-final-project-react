@@ -39,7 +39,6 @@ export const EventsPage = () => {
     header,
     subHeader,
   } = useContext(DataContext);
-  console.log("header:", header);
 
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";

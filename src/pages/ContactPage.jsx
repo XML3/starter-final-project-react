@@ -1,5 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import DataContext from "../components/Root";
+import Typewriter from "../components/Typewriter";
 import {
   Box,
   Center,
@@ -40,6 +42,8 @@ const robotoSlabWeight = {
 };
 
 const ContactForm = () => {
+  const { header } = useContext(DataContext);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -120,9 +124,9 @@ const ContactForm = () => {
             ml={{ base: "0.5rem", md: "8.5rem" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
+            maxW={{ base: "100%", md: "900px" }}
           >
-            Electronic Music <br />
-            Events
+            <Typewriter text={header} delay={100} />
           </Heading>
         </Box>
       </Flex>
