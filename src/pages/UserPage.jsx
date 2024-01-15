@@ -33,7 +33,7 @@ export const UserPage = ({ userId }) => {
         mb={{ base: "1rem", md: "1rem" }}
       >
         <Text
-          color={"teal.300"}
+          color={"gray.200"}
           fontWeight={"bold"}
           marginBottom={2}
           marginLeft={"5rem"}
