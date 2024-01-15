@@ -6,6 +6,7 @@ import { SearchItem } from "../components/SearchItem";
 import DataContext from "../components/Root";
 import ImgAnimation from "../components/ImgAnimation";
 import TextAnimation from "../components/TextAnimation";
+import Typewriter from "../components/Typewriter";
 
 import {
   Heading,
@@ -35,7 +36,10 @@ export const EventsPage = () => {
     users,
     articles,
     imgAnimation,
+    header,
+    subHeader,
   } = useContext(DataContext);
+  console.log("header:", header);
 
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";
@@ -94,9 +98,11 @@ export const EventsPage = () => {
               lineHeight={"1.2"}
               mt={{ base: "1rem", md: "0" }}
               ml={{ base: "0.5rem", md: "0" }}
+              maxW={{ base: "100%", md: "900px" }}
             >
-              Electronic Music <br />
-              Events
+              {/* Electronic Music <br />
+              Events */}
+              <Typewriter text={header} delay={100} />
             </Heading>
 
             <Text
@@ -109,13 +115,17 @@ export const EventsPage = () => {
               fontFamily={robotoSlabFont}
               fontWeight={robotoSlabWeight.light}
             >
-              We aim to provide information on Electronic Music Events in your
+              {/* We aim to provide information on Electronic Music Events in your
               area by offering our service to all promoters for different types
               of venues and size events in all corners of the world to enrich
-              human lives through movement and sound.
+              human lives through movement and sound. */}
+              <Typewriter text={subHeader} delay={30} />
             </Text>
           </Box>
-          <ImgAnimation imgAnimation={imgAnimation} />
+          <ImgAnimation
+            imgAnimation={imgAnimation}
+            maxW={{ base: "100%", md: "400px" }}
+          />
         </Flex>
         {/* 
 
