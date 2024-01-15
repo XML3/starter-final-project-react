@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import DataContext from "../components/Root";
 import Typewriter from "../components/Typewriter";
-
 import { Box, Heading, Flex, Text } from "@chakra-ui/react";
 
 export const NewsPage = () => {
