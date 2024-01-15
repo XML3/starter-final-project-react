@@ -1,6 +1,5 @@
 import { delay } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import { Heading } from "@chakra-ui/react";
 
 const Typewriter = ({ text, delay }) => {
   const [currentText, setCurrentText] = useState("");
@@ -29,20 +28,7 @@ const Typewriter = ({ text, delay }) => {
   };
 
   //Typing logic
-  return (
-    <span
-    //   fontFamily={orbitronFontFamily}
-    //   fontWeight={orbitronWeight.semibold}
-    //   color={"green.200"}
-    //   fontSize={{ base: "24px", md: "50px", lg: "80px", xl: "100px" }}
-    //   lineHeight={"1.2"}
-    //   mt={{ base: "1rem", md: "0" }}
-    //   ml={{ base: "0.5rem", md: "0" }}
-    //   maxW={{ base: "100%", md: "900px" }}
-    >
-      {currentText}
-    </span>
-  );
+  return <span>{currentText}</span>;
 };
 
 export default Typewriter;
