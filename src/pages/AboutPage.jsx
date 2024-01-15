@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Image, Center, Box, Flex, Heading, Text } from "@chakra-ui/react";
-import TextAnimation from "../components/TextAnimation";
+import DataContext from "../components/Root";
+import Typewriter from "../components/Typewriter";
 
 export const AboutPage = () => {
+  const { header } = useContext(DataContext);
+
   //FONT ORBITRON
   const orbitronFontFamily = "Orbitron, sans-serif";
   const orbitronWeight = {
@@ -53,9 +56,9 @@ export const AboutPage = () => {
             ml={{ base: "0.5rem", md: "8.5rem" }}
             fontFamily={orbitronFontFamily}
             fontWeight={orbitronWeight.semibold}
+            maxW={{ base: "100%", md: "900px" }}
           >
-            Electronic Music <br />
-            Events
+            <Typewriter text={header} delay={100} />
           </Heading>
         </Box>
       </Flex>
