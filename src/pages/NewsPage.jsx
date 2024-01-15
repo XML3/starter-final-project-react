@@ -2,17 +2,7 @@ import React, { useContext } from "react";
 import DataContext from "../components/Root";
 import Typewriter from "../components/Typewriter";
 
-import {
-  Box,
-  Center,
-  Heading,
-  Flex,
-  Image,
-  Text,
-  Input,
-  Textarea,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Heading, Flex, Text } from "@chakra-ui/react";
 
 export const NewsPage = () => {
   const { header } = useContext(DataContext);
