@@ -310,7 +310,7 @@ export const EventPage = () => {
               <Image
                 src={event.image}
                 alt={event.title}
-                borderRadius={"md"}
+                borderRadius={"full"}
                 mb={4}
                 w={{ base: "15rem", md: "20rem" }}
                 h={{ base: "10rem", md: "15rem" }}
@@ -332,7 +332,7 @@ export const EventPage = () => {
               fontFamily={robotoSlabFont}
               fontWeight={robotoSlabWeight.thin}
               paddingLeft={"2rem"}
-              color={"teal.300"}
+              color={"gray.200"}
               paddingBottom={"1rem"}
             >
               {event.lineup}
