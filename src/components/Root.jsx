@@ -18,6 +18,10 @@ export const Root = ({ initialEvents, children }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [articles, setArticles] = useState([]);
   const [imgAnimation, setImgAnimation] = useState([]);
+  const [header, setHeader] = useState("Electronic Music Events");
+  const [subHeader, setSubHeader] = useState(
+    " We aim to provide information on Electronic Music Events in your area by offering our service to all promoters for different types of venues and size events in all corners of the world to enrich human lives through movement and sound."
+  );
 
   const toast = useToast();
 
@@ -154,6 +158,8 @@ export const Root = ({ initialEvents, children }) => {
     deleteEvent,
     articles,
     imgAnimation,
+    header,
+    subHeader,
   };
 
   return (
